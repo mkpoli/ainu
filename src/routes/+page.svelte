@@ -18,7 +18,7 @@
 		<div role="doc-subtitle">
 			<span lang="ja"> アイヌ語執筆支援サイト </span>
 			<span lang="en"> Ainu Language Writing Support Site </span>
-			<span lang="ru"> Сайт поддержки письма на языке айну </span>
+			<span lang="ru"> Сайт поддержки письма на айнском языке </span>
 		</div>
 		<button
 			on:click={() => {
@@ -45,10 +45,82 @@
 				<div class="card-description" role="doc-subtitle">
 					<span lang="ja">アイヌ語表記変換</span>
 					<span lang="en">Ainu Script Conversion</span>
-					<span lang="ru">Преобразование айну в письменность</span>
+					<span lang="ru">Преобразование айнской письменности</span>
 				</div>
 			</div>
 		</div>
+	</section>
+	<section>
+		<h2>{$t('Aynuitak-Eonnekunnep')}</h2>
+		<div role="doc-subtitle" lang="ja">
+			<span lang="ja">アイヌ語辞書</span>
+			<span lang="en">Ainu Dictionaries</span>
+			<span lang="ru">Айнские словари</span>
+		</div>
+		<table>
+			<thead>
+				<tr>
+					<th>{$t('Eonnekunnep')}</th>
+					<th>{$t('Itak')}</th>
+					<th>{$t('Cipiskip')}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<a href="https://ainugo.nam.go.jp/dic" lang="ja">
+							国立アイヌ民族博物館アイヌ語アーカイブ
+						</a>
+					</td>
+					<td>
+						<span>Aynuitak-Sisamitak</span><br /><span lang="ja">アイヌ語・日本語</span>
+					</td>
+					<td> 27000 </td>
+				</tr>
+				<tr>
+					<td>
+						<a href="http://hdl.handle.net/2115/87707" lang="ja">
+							和愛辞典 : 草稿版 （太田満 編）</a
+						>
+					</td>
+					<td>
+						<span>Sisamitak-Aynuitak</span><br /><span lang="ja">日本語・アイヌ語</span>
+					</td>
+					<td> 12500 </td>
+				</tr>
+				<tr>
+					<td>
+						<a
+							href="https://ja.wiktionary.org/wiki/%E3%82%AB%E3%83%86%E3%82%B4%E3%83%AA:%E3%82%A2%E3%82%A4%E3%83%8C%E8%AA%9E"
+							lang="ja"
+						>
+							日本語版Wiktionary
+						</a>
+					</td>
+					<td>
+						<span>Aynuitak-Sisamitak</span><br /><span>アイヌ語・日本語</span>
+					</td>
+					<td> 2000 </td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://en.wiktionary.org/wiki/Category:Ainu_language" lang="en">
+							English Wiktionary
+						</a>
+					</td>
+					<td>
+						<span>Aynuitak-Ingurisitak</span><br /><span lang="en">Ainu-English</span>
+					</td>
+					<td> 600 </td>
+				</tr>
+			</tbody>
+		</table>
+
+		<ul>
+			<li>
+				<i>{$t('Ainuitak-Nucaitak-Eonnekunnep tane isam. a=eramuan yakun i=pakasnu yan!')}</i>
+			</li>
+		</ul>
 	</section>
 </main>
 

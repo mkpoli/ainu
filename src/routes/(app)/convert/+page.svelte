@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { t, convertLatn2Kana } from '$lib/convert';
 	import IcBaselineContentCopy from '~icons/ic/baseline-content-copy';
+
 	let input: string = '';
 	let converted: string = '';
 
