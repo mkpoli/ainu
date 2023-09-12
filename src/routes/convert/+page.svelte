@@ -37,6 +37,7 @@
 		align-items: center;
 		justify-content: center;
 		gap: 1em;
+		padding: 1.5em;
 	}
 
 	output {

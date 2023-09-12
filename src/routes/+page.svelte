@@ -30,6 +30,7 @@
 		margin: 0;
 		text-align: center;
 	}
+
 	div[role='doc-subtitle'] {
 		font-size: 1.5em;
 		font-weight: bold;
