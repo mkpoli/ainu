@@ -246,7 +246,7 @@ function convertWord(temp: string): string {
 };
 
 export function convertLatn2Kana(latn: string): string {
-  const words = latn.split(AINU_LATN_WORD_PATTERN).filter(Boolean);
+  const words = latn.toLowerCase().split(AINU_LATN_WORD_PATTERN).filter(Boolean);
   const convertedWords = words.map(word => word.match(AINU_LATN_WORD_PATTERN) ? convertWord(word) : word);
   return convertedWords.join(" ");
 }
@@ -269,7 +269,14 @@ export const t = derived(script, ($script) => {
     return (text: string): string => text;
   }
   if ($script === 'Kana') {
-    return convertLatn2Kana;
+    return (text: string) => {
+      try {
+        return convertLatn2Kana(text);
+      } catch (e) {
+        console.error(e);
+        return text;
+      }
+    };
   }
   if ($script === 'Cyrl') {
     return (text: string): string => text;
