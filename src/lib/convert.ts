@@ -258,3 +258,19 @@ export function convertLatn2Kana(latn: string): string {
 // }
 
 // console.log(doConvert('akan'));
+
+import { writable, derived } from "svelte/store";
+
+export const script = writable<'Latn' | 'Kana' | 'Cyrl'>('Latn');
+export const t = derived(script, ($script) => {
+  if ($script === 'Latn') {
+    return (text: string): string => text;
+  }
+  if ($script === 'Kana') {
+    return convertLatn2Kana;
+  }
+  if ($script === 'Cyrl') {
+    return (text: string): string => text;
+  }
+  throw new Error('Unknown script');
+});
