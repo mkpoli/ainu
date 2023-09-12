@@ -3,6 +3,8 @@
  * https://ja.wiktionary.org/w/index.php?title=%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB:ain-kana-conv&oldid=1814571
  */
 
+const AINU_LATN_WORD_PATTERN = /([a-zA-Z\p'\-=∅ø]+)/;
+
 const CONSONANTS: string[] = [
   "p", "t", "c", "k",
   "m", "n", "s", "h",
@@ -244,8 +246,8 @@ function convertWord(temp: string): string {
 };
 
 export function convertLatn2Kana(latn: string): string {
-  const words = latn.split(" ");
-  const convertedWords = words.map(word => convertWord(word));
+  const words = latn.split(AINU_LATN_WORD_PATTERN).filter(Boolean);
+  const convertedWords = words.map(word => word.match(AINU_LATN_WORD_PATTERN) ? convertWord(word) : word);
   return convertedWords.join(" ");
 }
 

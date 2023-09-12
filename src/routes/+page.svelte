@@ -17,6 +17,8 @@
 <div role="doc-subtitle" lang="en">Ainu Language Writing Support Site</div>
 <div role="doc-subtitle" lang="ru">Сайт поддержки письма на языке айну</div>
 
+<a href="/convert">{$t('tokpa-inuye eutasare')}</a>
+
 <style>
 	select {
 		margin: 0 auto;
