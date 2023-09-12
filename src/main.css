@@ -1,0 +1,43 @@
+:root {
+  font-family: sans-serif;
+
+  --color-theme: #142338;
+  --color-theme-text: #fff;
+  --color-theme-lighter: #1c2c4a;
+  --color-theme-darker: #0e1a2c;
+
+  --text-shadow-brighten: 0 0 20px rgba(255, 255, 255, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+
+  overflow-x: hidden;
+}
+
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.2em;
+  font-weight: bold;
+}
