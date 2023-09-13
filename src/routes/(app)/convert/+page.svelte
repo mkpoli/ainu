@@ -18,7 +18,7 @@
 </script>
 
 <main>
-	<h1>{$t('Aynuitaki-tokpa Inuye Eutasare')}</h1>
+	<h1>{$t('Aynuitak-Itokpa-Inuye Eutasare')}</h1>
 	<select disabled>
 		<option value="Latn2Kana">Romaunkur-itakitokpa → カタカナ イタキトㇰパ</option>
 		<!-- <option value="Latn2Kana">Romaunkur-itakitokpa → カタカナ イタキトㇰパ</option> -->
