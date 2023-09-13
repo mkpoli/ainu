@@ -9,9 +9,9 @@
 		{$t('Itokpa-Inuye')}</label
 	>
 	<select id="script-select" name="script" bind:value={$script}>
-		<option value="Latn">rómaunkur-itakitokpa</option>
+		<option value="Latn">Rómaunkur-Itakitokpa</option>
 		<option value="Kana">カタカナ イタキトㇰパ</option>
-		<option value="Cyrl" disabled>Нуча-итакитокпа</option>
+		<option value="Cyrl">Нуча-итакитокпа</option>
 	</select>
 </div>
 

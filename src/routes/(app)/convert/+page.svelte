@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { t, convertLatn2Kana } from '$lib/convert';
+	import { t, convertLatn2Kana, convertLatn2Cyrl } from '$lib/convert';
 	import IcBaselineContentCopy from '~icons/ic/baseline-content-copy';
 
 	let input: string = '';
@@ -9,19 +9,28 @@
 
 	$: {
 		try {
-			converted = convertLatn2Kana(input.toLowerCase());
+			switch (mode) {
+				case 'Latn2Kana':
+					converted = convertLatn2Kana(input);
+					break;
+				case 'Latn2Cyrl':
+					converted = convertLatn2Cyrl(input);
+					break;
+			}
 			lastConverted = converted;
 		} catch (e) {
 			converted = lastConverted;
 		}
 	}
+
+	let mode: 'Latn2Kana' | 'Latn2Cyrl' = 'Latn2Kana';
 </script>
 
 <main>
 	<h1>{$t('Aynuitak-Itokpa-Inuye Eutasare')}</h1>
-	<select disabled>
+	<select bind:value={mode}>
 		<option value="Latn2Kana">Romaunkur-itakitokpa → カタカナ イタキトㇰパ</option>
-		<!-- <option value="Latn2Kana">Romaunkur-itakitokpa → カタカナ イタキトㇰパ</option> -->
+		<option value="Latn2Cyrl">Romaunkur-itakitokpa → Нуча-Итакитокпа</option>
 	</select>
 
 	<textarea class="input" bind:value={input} />

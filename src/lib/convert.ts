@@ -260,10 +260,48 @@ export function convertLatn2Kana(latn: string): string {
 // }
 
 // console.log(doConvert('akan'));
+const LATN_2_CYRL_TABLE: Record<string, string> = {
+  "a": "а", "i": "и", "u": "у", "e": "э", "o": "о",
+  "k": "к", "s": "с", "t": "т", "c": "ц", "h": "х",
+  "m": "м", "n": "н", "p": "п", "r": "р", "w": "в",
+  "yu": "ю", "ya": "я", "yo": "ё", "ye": "е", "yi": "и",
+  "y": "й", "x": "х", "'": "ъ",
+};
+
+export function convertLatn2Cyrl(input: string): string {
+  let result = input;
+
+  // Convert multi-character sequences first
+  const multiCharKeys = ["yu", "ya", "yo", "ye", "yi"];
+  for (const key of multiCharKeys) {
+    const cyrl = LATN_2_CYRL_TABLE[key];
+    const cyrlUppercase = cyrl.toUpperCase();
+    const regex = new RegExp(key, "g");
+    const regexUppercase = new RegExp(key.toUpperCase(), "g");
+    result = result.replace(regex, cyrl);
+    result = result.replace(regexUppercase, cyrlUppercase);
+  }
+
+  // Convert the remaining characters
+  for (const [latn, cyrl] of Object.entries(LATN_2_CYRL_TABLE)) {
+    if (!multiCharKeys.includes(latn)) {
+      const cyrlUppercase = cyrl.toUpperCase();
+      const regex = new RegExp(latn, "g");
+      const regexUppercase = new RegExp(latn.toUpperCase(), "g");
+      result = result.replace(regex, cyrl);
+      result = result.replace(regexUppercase, cyrlUppercase);
+    }
+  }
+
+  return result;
+}
 
 import { writable, derived } from "svelte/store";
 
 export const script = writable<'Latn' | 'Kana' | 'Cyrl'>('Latn');
+export const languageCode = derived(script, ($script) => {
+  return `ain-${$script}`;
+});
 export const t = derived(script, ($script) => {
   if ($script === 'Latn') {
     return (text: string): string => text;
@@ -279,7 +317,14 @@ export const t = derived(script, ($script) => {
     };
   }
   if ($script === 'Cyrl') {
-    return (text: string): string => text;
+    return (text: string) => {
+      try {
+        return convertLatn2Cyrl(text);
+      } catch (e) {
+        console.error(e);
+        return text;
+      }
+    }
   }
   throw new Error('Unknown script');
 });
