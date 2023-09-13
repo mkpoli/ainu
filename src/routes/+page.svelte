@@ -161,10 +161,17 @@
 				</tr>
 			</tbody>
 		</table>
-
+		<p><i>{$t('Ainuitak-Nucaitak-Eonnekunnep tane isam. a=eramuan yakun i=pakasnu yan!')}</i></p>
+		<h3>
+			{$t('Oya Rinko')}
+		</h3>
 		<ul>
 			<li>
-				<i>{$t('Ainuitak-Nucaitak-Eonnekunnep tane isam. a=eramuan yakun i=pakasnu yan!')}</i>
+				<a
+					href="https://ja.wiktionary.org/wiki/%E5%88%A9%E7%94%A8%E8%80%85:Mkpoli/%E3%82%A2%E3%82%A4%E3%83%8C%E8%AA%9E%E8%AA%9E%E5%BD%99%E9%A0%BB%E5%BA%A6%E8%A1%A8"
+				>
+					利用者:Mkpoli/アイヌ語語彙頻度表 - ウィクショナリー日本語版
+				</a>
 			</li>
 		</ul>
 	</section>
