@@ -39,7 +39,7 @@
 		>
 	</section>
 	<section id="aim">
-		<h2>Cikosirepap</h2>
+		<h2>{$t('Cikosirepap')}</h2>
 		<div role="doc-subtitle" lang="ja">
 			<span lang="ja">目的</span>
 			<span lang="en">Aim</span>
