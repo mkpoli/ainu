@@ -26,6 +26,10 @@
 	let mode: 'Latn2Kana' | 'Latn2Cyrl' = 'Latn2Kana';
 </script>
 
+<svelte:head>
+	<title>{$t('Aynuitak-Itokpa-Inuye Eutasare')}</title>
+</svelte:head>
+
 <main>
 	<h1>{$t('Aynuitak-Itokpa-Inuye Eutasare')}</h1>
 	<select bind:value={mode}>
