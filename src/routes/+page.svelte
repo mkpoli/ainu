@@ -165,6 +165,13 @@
 		</div>
 		<ul>
 			<li>
+				公益財団法人 アイヌ民族文化財団「<a
+					href="https://www.ff-ainu.or.jp/web/potal_site/"
+					lang="ja"
+					target="_blank">アイヌ語ポータルサイト</a
+				>」
+			</li>
+			<li>
 				佐藤 知己，モコットゥナシ 北原，シリヤ イヤス（2022）「<a
 					href="https://doi.org/10.14943/Jais.2.075"
 					lang="ja"
