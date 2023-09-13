@@ -57,7 +57,11 @@
 		</div>
 		<class class="cards">
 			<div class="card">
-				<a href="https://incubator.wikimedia.org/wiki/Wp/ain/Main%20Page"> Wikipenciya a=kar </a>
+				<h3>
+					<a href="https://incubator.wikimedia.org/wiki/Wp/ain/Main%20Page" target="_blank">
+						Wikipenciya a=kar
+					</a>
+				</h3>
 				<div class="card-description" role="doc-subtitle">
 					<span lang="ja">ウィキペディア誕生プロジェクト</span>
 					<span lang="en">Wikipedia Incubator Project</span>
