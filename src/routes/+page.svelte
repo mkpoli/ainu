@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Ayus from '$assets/Ayus.svelte';
-	import Footer from '$lib/Footer.svelte';
 	import ScriptSelect from '$lib/ScriptSelect.svelte';
 	import { script, t } from '$lib/convert';
 	import MaterialSymbolsFitbitArrowDownwardRounded from '~icons/material-symbols/fitbit-arrow-downward-rounded';
@@ -191,8 +190,6 @@
 		</ul>
 	</section>
 </main>
-
-<Footer />
 
 <style>
 	.script-select-container {
