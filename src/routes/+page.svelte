@@ -30,7 +30,36 @@
 			class="more"><MaterialSymbolsFitbitArrowDownwardRounded /></button
 		>
 	</section>
-	<section>
+	<section id="aim">
+		<h2>Cikosirepap</h2>
+		<div role="doc-subtitle" lang="ja">
+			<span lang="ja">目的</span>
+			<span lang="en">Aim</span>
+			<span lang="ru">Цель</span>
+		</div>
+		<p>
+			{$t('Aynuitak einuypa eukasuy wa tanesasuysir osiknuka.')}
+		</p>
+		<div class="translation">
+			<span lang="ja">アイヌ語での文章制作を支援し、その現代化を促進する</span>
+			<span lang="en">To support the writing in Ainu and to promote the modernization of Ainu</span>
+			<span lang="ru"
+				>Поддержать письмо на айнском языке и способствовать его современному развитию</span
+			>
+		</div>
+		<class class="cards">
+			<div class="card">
+				<a href="https://incubator.wikimedia.org/wiki/Wp/ain/Main%20Page"> Wikipenciya a=kar </a>
+				<div class="card-description" role="doc-subtitle">
+					<span lang="ja">ウィキペディア誕生プロジェクト</span>
+					<span lang="en">Wikipedia Incubator Project</span>
+					<span lang="ru">Проект Инкубатора Википедии</span>
+					<div />
+				</div>
+			</div></class
+		>
+	</section>
+	<section id="tools">
 		<h2>{$t('Aeywankep')}</h2>
 		<div role="doc-subtitle" lang="ja">
 			<span lang="ja">ツール</span>
@@ -50,7 +79,7 @@
 			</div>
 		</div>
 	</section>
-	<section>
+	<section id="dicts">
 		<h2>{$t('Aynuitak-Eonnekunnep')}</h2>
 		<div role="doc-subtitle" lang="ja">
 			<span lang="ja">アイヌ語辞書</span>
@@ -68,7 +97,7 @@
 			<tbody>
 				<tr>
 					<td>
-						<a href="https://ainugo.nam.go.jp/dic" lang="ja">
+						<a href="https://ainugo.nam.go.jp/dic" lang="ja" target="_blank">
 							国立アイヌ民族博物館アイヌ語アーカイブ
 						</a>
 					</td>
@@ -79,7 +108,7 @@
 				</tr>
 				<tr>
 					<td>
-						<a href="http://hdl.handle.net/2115/87707" lang="ja">
+						<a href="http://hdl.handle.net/2115/87707" lang="ja" target="_blank">
 							和愛辞典 : 草稿版 （太田満 編）</a
 						>
 					</td>
@@ -93,6 +122,7 @@
 						<a
 							href="https://ja.wiktionary.org/wiki/%E3%82%AB%E3%83%86%E3%82%B4%E3%83%AA:%E3%82%A2%E3%82%A4%E3%83%8C%E8%AA%9E"
 							lang="ja"
+							target="_blank"
 						>
 							日本語版Wiktionary
 						</a>
@@ -104,7 +134,11 @@
 				</tr>
 				<tr>
 					<td>
-						<a href="https://en.wiktionary.org/wiki/Category:Ainu_language" lang="en">
+						<a
+							href="https://en.wiktionary.org/wiki/Category:Ainu_language"
+							lang="en"
+							target="_blank"
+						>
 							English Wiktionary
 						</a>
 					</td>
@@ -119,6 +153,24 @@
 		<ul>
 			<li>
 				<i>{$t('Ainuitak-Nucaitak-Eonnekunnep tane isam. a=eramuan yakun i=pakasnu yan!')}</i>
+			</li>
+		</ul>
+	</section>
+	<section id="resource">
+		<h2>Itaksay</h2>
+		<div role="doc-subtitle" lang="ja">
+			<span lang="ja">資料</span>
+			<span lang="en">Resources</span>
+			<span lang="ru">Ресурсы</span>
+		</div>
+		<ul>
+			<li>
+				佐藤 知己，モコットゥナシ 北原，シリヤ イヤス（2022）「<a
+					href="https://doi.org/10.14943/Jais.2.075"
+					lang="ja"
+					target="_blank"
+					>「北海道大学キャンパスガイドマップ」のアイヌ語併記作業について：翻訳と脱植民地化に関する議論をめぐって</a
+				>」『アイヌ・先住民研究』北海道大学アイヌ・先住民研究センター
 			</li>
 		</ul>
 	</section>
@@ -144,7 +196,8 @@
 		padding: 1.5em;
 	}
 
-	div[role='doc-subtitle'] {
+	div[role='doc-subtitle'],
+	.translation {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -167,6 +220,10 @@
 	h3 + div[role='doc-subtitle'] {
 		font-size: 1.125em;
 		line-height: 1.5em;
+	}
+
+	p {
+		text-align: center;
 	}
 
 	.cards {
@@ -228,6 +285,10 @@
 		background: #142338;
 		color: white;
 		text-shadow: 0 0 1.5em rgba(255, 255, 255, 0.25);
+	}
+
+	ul {
+		max-width: 40em;
 	}
 
 	button.more {
