@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Ayus from '$assets/Ayus.svelte';
 	import ScriptSelect from '$lib/ScriptSelect.svelte';
 	import { script, t } from '$lib/convert';
 	import MaterialSymbolsFitbitArrowDownwardRounded from '~icons/material-symbols/fitbit-arrow-downward-rounded';
@@ -14,12 +15,20 @@
 		<div class="script-select-container">
 			<ScriptSelect />
 		</div>
-		<h1>{$t('Aynuitak Inuypa Ukosammaani Sayto')}</h1>
-		<div role="doc-subtitle">
-			<span lang="ja"> アイヌ語執筆支援サイト </span>
-			<span lang="en"> Ainu Language Writing Support Site </span>
-			<span lang="ru"> Сайт поддержки письма на айнском языке </span>
+
+		<div class="title-content">
+			<Ayus />
+			<div>
+				<h1>{$t('Aynuitak Inuypa Ukosammaani Sayto')}</h1>
+				<div role="doc-subtitle">
+					<span lang="ja"> アイヌ語執筆支援サイト </span>
+					<span lang="en"> Ainu Language Writing Support Site </span>
+					<span lang="ru"> Сайт поддержки письма на айнском языке </span>
+				</div>
+			</div>
+			<Ayus />
 		</div>
+
 		<button
 			on:click={() => {
 				const section = document.querySelector('section:nth-of-type(2)');
@@ -291,7 +300,14 @@
 	section#title {
 		background: #142338;
 		color: white;
-		text-shadow: 0 0 1.5em rgba(255, 255, 255, 0.25);
+		text-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+	}
+
+	.title-content {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
 	}
 
 	ul {
