@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Ayus from '$assets/Ayus.svelte';
+	import Footer from '$lib/Footer.svelte';
 	import ScriptSelect from '$lib/ScriptSelect.svelte';
 	import { script, t } from '$lib/convert';
 	import MaterialSymbolsFitbitArrowDownwardRounded from '~icons/material-symbols/fitbit-arrow-downward-rounded';
-	import MdiGithub from '~icons/mdi/github';
 </script>
 
 <svelte:head>
@@ -192,12 +192,7 @@
 	</section>
 </main>
 
-<footer>
-	<a href="https://github.com/mkpoli/ainu">
-		<MdiGithub />
-	</a>
-	<a href="https://mkpo.li/"><i>mkpoli</i></a>{$t('2023 pa wano kar')}
-</footer>
+<Footer />
 
 <style>
 	.script-select-container {
@@ -342,22 +337,5 @@
 		100% {
 			transform: translateY(0);
 		}
-	}
-
-	footer {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 1em;
-		padding: 1.5em;
-		width: 100%;
-		background-color: #124669;
-		color: white;
-		font-size: 1.5em;
-	}
-
-	footer a {
-		color: inherit;
-		text-decoration: none;
 	}
 </style>
