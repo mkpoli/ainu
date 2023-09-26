@@ -30,6 +30,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@rollup/plugin-dsv": "^3.0.2",
     "unplugin-icons": "^0.17.0"
   }
 }

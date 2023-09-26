@@ -1,0 +1,105 @@
+<script lang="ts">
+	export let value: string = '';
+
+	import { tick } from 'svelte';
+	import { caret } from '$lib/caret';
+	import SuggestionBox from './SuggestionBox.svelte';
+
+	import WORD_FREQ_LIST from '$data/word_freq.tsv';
+
+	const dictionary = WORD_FREQ_LIST.concat([
+		{ word: 'ku=', freq: 9999 },
+		{ word: 'k=', freq: 9998 },
+		{ word: 'a=', freq: 9999 },
+		{ word: 'ci=', freq: 9999 },
+		{ word: 'eci=', freq: 9999 },
+		{ word: 'e=', freq: 9999 },
+		{ word: 'i=', freq: 9999 },
+		{ word: 'en=', freq: 9999 },
+		{ word: 'un=', freq: 9999 },
+		{ word: '=an', freq: 9999 },
+		{ word: '=as', freq: 9999 }
+	]);
+
+	let suggestionBox: HTMLDivElement;
+
+	let suggestions: string[] = ['a', 'b', 'c'];
+
+	// function getLastChar()
+
+	function compileSuggestions(
+		input: string,
+		caretPos: number,
+		dictionary: { word: string; freq: number }[]
+	): string[] {
+		// Get substring until caret position
+		const sub = input.slice(0, caretPos);
+
+		// Get the last word
+		const lastWord = sub.split(/[\s\W]/).pop();
+
+		if (!lastWord) return [];
+		return dictionary
+			.filter(({ word }) => word.startsWith(lastWord))
+			.toSorted((a, b) => b.freq - a.freq)
+			.toSorted((a, b) => a.word.length - b.word.length)
+			.map(({ word }) => word);
+	}
+
+	$: suggestions = compileSuggestions(value, caretPos, dictionary);
+
+	let textArea: HTMLTextAreaElement;
+
+	let caretRect: DOMRect | undefined = undefined;
+	let caretPos: number = 0;
+</script>
+
+<div>
+	<SuggestionBox
+		bind:box={suggestionBox}
+		{suggestions}
+		rect={caretRect}
+		{textArea}
+		on:select={async ({ detail: repl }) => {
+			const beforeCaret = value.slice(0, caretPos);
+			const lastWord = beforeCaret.split(/[\s\W]/).pop();
+			if (!lastWord) return;
+			const afterCaret = value.slice(caretPos);
+			value =
+				beforeCaret.slice(0, -lastWord.length) +
+				repl +
+				(afterCaret.startsWith(' ') ? '' : ' ') +
+				afterCaret;
+			await tick();
+			textArea.setSelectionRange(
+				value.length - afterCaret.length,
+				value.length - afterCaret.length
+			);
+		}}
+	/>
+
+	<textarea
+		class="text-box input-box"
+		bind:value
+		bind:this={textArea}
+		use:caret
+		on:caretmove={({
+			detail: {
+				rect,
+				selection: { end }
+			}
+		}) => {
+			caretRect = rect;
+			caretPos = end;
+		}}
+		{...$$restProps}
+	/>
+</div>
+
+<style>
+	div {
+		width: 100%;
+		height: auto;
+		position: relative;
+	}
+</style>

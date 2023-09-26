@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { t, convertLatn2Kana, convertLatn2Cyrl } from '$lib/convert';
+	import Textarea from '$lib/ime/Textarea.svelte';
 	import IcBaselineContentCopy from '~icons/ic/baseline-content-copy';
 
 	let input: string = '';
@@ -37,7 +38,8 @@
 		<option value="Latn2Cyrl">Romaunkur-itakitokpa → Нуча-Итакитокпа</option>
 	</select>
 
-	<textarea class="input" bind:value={input} />
+	<!-- <textarea class="input" bind:value={input} /> -->
+	<Textarea style="height: fit-content;" bind:value={input} />
 
 	<output>
 		<button
@@ -69,16 +71,12 @@
 		width: 100%;
 	}
 
-	textarea {
+	:global(textarea) {
 		width: 100%;
 		height: 10em;
 		font-size: 1.5em;
 		font-family: sans-serif;
 		resize: none;
-	}
-
-	textarea.input {
-		height: fit-content;
 	}
 
 	output textarea {
