@@ -6,20 +6,33 @@
 	import SuggestionBox from './SuggestionBox.svelte';
 
 	import WORD_FREQ_LIST from '$data/word_freq.tsv';
+	import EXTRA_WORD_LIST from '$data/already_exists.txt?raw';
+	const PERSONAL_AFFIXES = [
+		'ku=',
+		'k=',
+		'a=',
+		'ci=',
+		'eci=',
+		'e=',
+		'i=',
+		'en=',
+		'un=',
+		'=an',
+		'=as'
+	];
 
-	const dictionary = WORD_FREQ_LIST.concat([
-		{ word: 'ku=', freq: 9999 },
-		{ word: 'k=', freq: 9998 },
-		{ word: 'a=', freq: 9999 },
-		{ word: 'ci=', freq: 9999 },
-		{ word: 'eci=', freq: 9999 },
-		{ word: 'e=', freq: 9999 },
-		{ word: 'i=', freq: 9999 },
-		{ word: 'en=', freq: 9999 },
-		{ word: 'un=', freq: 9999 },
-		{ word: '=an', freq: 9999 },
-		{ word: '=as', freq: 9999 }
-	]);
+	const dictionary = [
+		...WORD_FREQ_LIST,
+		...PERSONAL_AFFIXES.map((word) => ({ word, freq: 9999 })),
+		...EXTRA_WORD_LIST.split('\n')
+			.filter(
+				(word) =>
+					word &&
+					!PERSONAL_AFFIXES.includes(word) &&
+					!WORD_FREQ_LIST.find(({ word: w }) => w === word)
+			)
+			.map((word) => ({ word, freq: 0 }))
+	];
 
 	let suggestionBox: HTMLDivElement;
 
