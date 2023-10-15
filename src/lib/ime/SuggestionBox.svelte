@@ -160,7 +160,7 @@
 		flex-direction: column;
 		min-width: 15rem;
 
-		font-size: 1.25rem;
+		font-size: inherit;
 
 		color: var(--color-theme);
 

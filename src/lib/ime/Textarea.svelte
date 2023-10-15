@@ -115,4 +115,10 @@
 		height: auto;
 		position: relative;
 	}
+
+	textarea {
+		width: 100%;
+		height: 10em;
+		resize: none;
+	}
 </style>
