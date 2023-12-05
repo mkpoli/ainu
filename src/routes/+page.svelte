@@ -3,6 +3,7 @@
 	import ScriptSelect from '$lib/ScriptSelect.svelte';
 	import { script, t } from '$lib/convert';
 	import MaterialSymbolsFitbitArrowDownwardRounded from '~icons/material-symbols/fitbit-arrow-downward-rounded';
+	import RiDiscordFill from '~icons/ri/discord-fill';
 </script>
 
 <svelte:head>
@@ -26,6 +27,17 @@
 				</div>
 			</div>
 			<Ayus />
+
+			<div class="sns">
+				<a
+					href="https://discord.gg/gbtc8sZTZ4"
+					target="_blank"
+					rel="noopener noreferrer"
+					title="Discord"
+				>
+					<RiDiscordFill width="1.5em" />
+				</a>
+			</div>
 		</div>
 
 		<button
@@ -345,5 +357,35 @@
 		100% {
 			transform: translateY(0);
 		}
+	}
+
+	#title {
+		position: relative;
+	}
+
+	.sns {
+		position: absolute;
+		right: 2em;
+		bottom: 1em;
+		font-size: 2em;
+	}
+
+	.sns a {
+		color: white;
+		text-decoration: none;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5em;
+	}
+
+	.sns a:hover {
+		color: #e9e9e9;
+		text-decoration: underline;
+	}
+
+	.sns a:active {
+		color: #c9c9c9;
 	}
 </style>
