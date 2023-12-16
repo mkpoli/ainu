@@ -113,7 +113,7 @@
 		<table>
 			<thead>
 				<tr>
-					<th>{$t('Eonnekunnep')}</th>
+					<th>{$t('Ieonnekunnep')}</th>
 					<th>{$t('Itak')}</th>
 					<th>{$t('Cipiskip')}</th>
 				</tr>
