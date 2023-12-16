@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Ayus from '$assets/Ayus.svelte';
 	import ScriptSelect from '$lib/ScriptSelect.svelte';
+	import CitationEN from '$lib/bibliography/CitationEN.svelte';
 	import { script, t } from '$lib/convert';
 	import MaterialSymbolsFitbitArrowDownwardRounded from '~icons/material-symbols/fitbit-arrow-downward-rounded';
 	import RiDiscordFill from '~icons/ri/discord-fill';
@@ -209,6 +210,17 @@
 					target="_blank"
 					>「北海道大学キャンパスガイドマップ」のアイヌ語併記作業について：翻訳と脱植民地化に関する議論をめぐって</a
 				>」『アイヌ・先住民研究』北海道大学アイヌ・先住民研究センター
+			</li>
+			<li>
+				<CitationEN
+					author="Ijas, Silja"
+					year="2023"
+					title="Language revitalization through lexical modernization and neologism-coining: The current state and future tasks of modernizing Ainu lexicon"
+					link="https://doi.org/10.14943/Jais.3.117"
+					journal="Aynu Teetawanoankur Kanpinuye"
+					volume="3"
+					pages="117-160"
+				/>
 			</li>
 		</ul>
 	</section>
