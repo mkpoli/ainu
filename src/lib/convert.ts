@@ -15,7 +15,7 @@ import {
 const AINU_LATN_WORD_PATTERN = /([a-zA-Z\p'\-=∅ø]+)/;
 
 export function convertLatn2Kana(latn: string): string {
-	const words = latn.toLowerCase().split(AINU_LATN_WORD_PATTERN).filter(Boolean);
+	const words = latn.toLowerCase().split(/\s+/).filter(Boolean);
 	const convertedWords = words.map((word) => {
 		if (word.match(AINU_LATN_WORD_PATTERN)) {
 			try {
@@ -31,7 +31,7 @@ export function convertLatn2Kana(latn: string): string {
 	return convertedWords.join(' ');
 }
 export function convertLatn2Cyrl(latn: string): string {
-	const words = latn.toLowerCase().split(AINU_LATN_WORD_PATTERN).filter(Boolean);
+	const words = latn.toLowerCase().split(/\s+/).filter(Boolean);
 	const convertedWords = words.map((word) => {
 		if (word.match(AINU_LATN_WORD_PATTERN)) {
 			try {
@@ -47,7 +47,7 @@ export function convertLatn2Cyrl(latn: string): string {
 	return convertedWords.join(' ');
 }
 export function convertKana2Latn(kana: string): string {
-	const words = kana.split(' ').filter(Boolean);
+	const words = kana.split(/\s+/).filter(Boolean);
 	const convertedWords = words.map((word) => {
 		try {
 			return convertKanaToLatn(word);
@@ -59,7 +59,7 @@ export function convertKana2Latn(kana: string): string {
 	return convertedWords.join(' ');
 }
 export function convertCyrl2Latn(cyrl: string): string {
-	const words = cyrl.split(' ').filter(Boolean);
+	const words = cyrl.split(/\s+/).filter(Boolean);
 	const convertedWords = words.map((word) => {
 		try {
 			return convertCyrlToLatn(word);
@@ -71,7 +71,7 @@ export function convertCyrl2Latn(cyrl: string): string {
 	return convertedWords.join(' ');
 }
 export function convertKana2Cyrl(kana: string): string {
-	const words = kana.split(' ').filter(Boolean);
+	const words = kana.split(/\s+/).filter(Boolean);
 	const convertedWords = words.map((word) => {
 		try {
 			return convertKanaToCyrl(word);
@@ -83,7 +83,7 @@ export function convertKana2Cyrl(kana: string): string {
 	return convertedWords.join(' ');
 }
 export function convertCyrl2Kana(cyrl: string): string {
-	const words = cyrl.split(' ').filter(Boolean);
+	const words = cyrl.split(/\s+/).filter(Boolean);
 	const convertedWords = words.map((word) => {
 		try {
 			return convertCyrlToKana(word);
