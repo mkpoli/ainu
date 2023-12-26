@@ -144,6 +144,28 @@
 				</tr>
 				<tr>
 					<td>
+						<a href="https://ainu.ninjal.ac.jp/topic/" lang="ja" target="_blank">
+							アトピック別 アイヌ語会話辞典</a
+						>
+					</td>
+					<td>
+						<span>Sisamitak-Aynuitak</span><br /><span lang="ja">日本語・アイヌ語</span>
+					</td>
+					<td> 3500 </td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://ainu.ninjal.ac.jp/topic/en/"
+							>Topical Dictionary of Conversational Ainu</a
+						>
+					</td>
+					<td>
+						<span>Ingurisitak-Aynuitak</span><br /><span lang="en">English-Ainu</span>
+					</td>
+					<td> 3500 </td>
+				</tr>
+				<tr>
+					<td>
 						<a
 							href="https://ja.wiktionary.org/wiki/%E3%82%AB%E3%83%86%E3%82%B4%E3%83%AA:%E3%82%A2%E3%82%A4%E3%83%8C%E8%AA%9E"
 							lang="ja"
