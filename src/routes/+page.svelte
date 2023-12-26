@@ -210,6 +210,42 @@
 			</li>
 		</ul>
 	</section>
+	<section id="textbooks">
+		<h2>{$t('Cioypakasnup')}</h2>
+		<div role="doc-subtitle" lang="ja">
+			<span lang="ja">教材</span>
+			<span lang="en">Textbooks</span>
+			<span lang="ru">Учебники</span>
+		</div>
+		<ul>
+			<li>
+				Sisamitak
+				<ul lang="ja">
+					<li>
+						公益財団法人 アイヌ語民俗文化財団「<a
+							href="https://www.ff-ainu.or.jp/web/potal_site/details/post.html"
+							target="_blank">アイヌ語教材テキスト</a
+						>」（各方言）
+					</li>
+					<li>
+						STV『<a href="https://www.stv.jp/radio/ainugo/index.html" target="_blank"
+							>アイヌ語ラジオ講座</a
+						>』白水社（各方言）
+					</li>
+					<li>
+						中川裕『<a href="https://www.hakusuisha.co.jp/book/b584600.html" target="_blank"
+							>ニューエクスプレスプラス アイヌ語</a
+						>』白水社（沙流方言）
+					</li>
+					<li>
+						丹菊逸治『<a href="https://www.hakusuisha.co.jp/book/b592865.html" target="_blank"
+							>ニューエクスプレス・スペシャル日本語の隣人たち　Ⅰ＋Ⅱ</a
+						>』白水社（樺太アイヌ語）
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
 	<section id="resource">
 		<h2>{$t('Itaksay')}</h2>
 		<div role="doc-subtitle" lang="ja">
