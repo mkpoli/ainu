@@ -65,7 +65,7 @@
 	</select>
 
 	<!-- <textarea class="input" bind:value={input} /> -->
-	<Textarea style="height: fit-content;" bind:value={input} />
+	<Textarea style="height: fit-content;" bind:value={input} lang={`ain-${mode.slice(0, 4)}`} />
 
 	<output>
 		<button
@@ -75,7 +75,7 @@
 		>
 			<IcBaselineContentCopy />
 		</button>
-		<textarea value={converted} readonly />
+		<textarea lang={`ain-${mode.slice(5)}`} value={converted} readonly />
 	</output>
 </main>
 

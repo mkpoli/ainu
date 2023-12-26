@@ -1,5 +1,6 @@
 <script lang="ts">
 	export let value: string = '';
+	export let lang: string = 'ain';
 
 	import { tick } from 'svelte';
 	import { caret } from '$lib/caret';
@@ -92,6 +93,7 @@
 	/>
 
 	<textarea
+		{lang}
 		class="text-box input-box"
 		bind:value
 		bind:this={textArea}
