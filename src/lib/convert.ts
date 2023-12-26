@@ -1,4 +1,11 @@
-import { convertLatnToCyrl, convertLatnToKana } from 'ainconv';
+import {
+	convertLatnToCyrl,
+	convertLatnToKana,
+	convertKanaToLatn,
+	convertCyrlToLatn,
+	convertKanaToCyrl,
+	convertCyrlToKana
+} from 'ainconv';
 
 /**
  * This is a TypeScript port of the original Lua (Scribunto) module by User:Mkpoli (same individual as this projects' author) and User:BrassSnail , with modifications to comply the common Ainu kanaization conventions.
@@ -34,6 +41,54 @@ export function convertLatn2Cyrl(latn: string): string {
 				return word;
 			}
 		} else {
+			return word;
+		}
+	});
+	return convertedWords.join(' ');
+}
+export function convertKana2Latn(kana: string): string {
+	const words = kana.split(' ').filter(Boolean);
+	const convertedWords = words.map((word) => {
+		try {
+			return convertKanaToLatn(word);
+		} catch (e) {
+			console.error(e);
+			return word;
+		}
+	});
+	return convertedWords.join(' ');
+}
+export function convertCyrl2Latn(cyrl: string): string {
+	const words = cyrl.split(' ').filter(Boolean);
+	const convertedWords = words.map((word) => {
+		try {
+			return convertCyrlToLatn(word);
+		} catch (e) {
+			console.error(e);
+			return word;
+		}
+	});
+	return convertedWords.join(' ');
+}
+export function convertKana2Cyrl(kana: string): string {
+	const words = kana.split(' ').filter(Boolean);
+	const convertedWords = words.map((word) => {
+		try {
+			return convertKanaToCyrl(word);
+		} catch (e) {
+			console.error(e);
+			return word;
+		}
+	});
+	return convertedWords.join(' ');
+}
+export function convertCyrl2Kana(cyrl: string): string {
+	const words = cyrl.split(' ').filter(Boolean);
+	const convertedWords = words.map((word) => {
+		try {
+			return convertCyrlToKana(word);
+		} catch (e) {
+			console.error(e);
 			return word;
 		}
 	});

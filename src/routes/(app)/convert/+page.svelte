@@ -1,5 +1,13 @@
 <script lang="ts">
-	import { t, convertLatn2Kana, convertLatn2Cyrl } from '$lib/convert';
+	import {
+		t,
+		convertLatn2Kana,
+		convertKana2Latn,
+		convertLatn2Cyrl,
+		convertCyrl2Latn,
+		convertKana2Cyrl,
+		convertCyrl2Kana
+	} from '$lib/convert';
 	import Textarea from '$lib/ime/Textarea.svelte';
 	import IcBaselineContentCopy from '~icons/ic/baseline-content-copy';
 
@@ -7,6 +15,8 @@
 	let converted: string = '';
 
 	let lastConverted: string = '';
+
+	type Mode = 'Latn2Kana' | 'Latn2Cyrl' | 'Kana2Latn' | 'Cyrl2Latn' | 'Kana2Cyrl' | 'Cyrl2Kana';
 
 	$: {
 		try {
@@ -17,6 +27,18 @@
 				case 'Latn2Cyrl':
 					converted = convertLatn2Cyrl(input);
 					break;
+				case 'Kana2Latn':
+					converted = convertKana2Latn(input);
+					break;
+				case 'Cyrl2Latn':
+					converted = convertCyrl2Latn(input);
+					break;
+				case 'Kana2Cyrl':
+					converted = convertKana2Cyrl(input);
+					break;
+				case 'Cyrl2Kana':
+					converted = convertCyrl2Kana(input);
+					break;
 			}
 			lastConverted = converted;
 		} catch (e) {
@@ -24,7 +46,7 @@
 		}
 	}
 
-	let mode: 'Latn2Kana' | 'Latn2Cyrl' = 'Latn2Kana';
+	let mode: Mode = 'Latn2Kana';
 </script>
 
 <svelte:head>
@@ -36,6 +58,10 @@
 	<select bind:value={mode}>
 		<option value="Latn2Kana">Romaunkur-itakitokpa → カタカナ イタキトㇰパ</option>
 		<option value="Latn2Cyrl">Romaunkur-itakitokpa → Нуча-Итакитокпа</option>
+		<option value="Kana2Latn">カタカナ イタキトㇰパ → Romaunkur-itakitokpa</option>
+		<option value="Cyrl2Latn">Нуча-Итакитокпа → Romaunkur-itakitokpa</option>
+		<option value="Kana2Cyrl">カタカナ イタキトㇰパ → Нуча-Итакитокпа</option>
+		<option value="Cyrl2Kana">Нуча-Итакитокпа → カタカナ イタキトㇰパ</option>
 	</select>
 
 	<!-- <textarea class="input" bind:value={input} /> -->
