@@ -285,6 +285,12 @@
 </main>
 
 <style>
+	@media screen and (max-width: 768px) {
+		.title-content :global(.ayus) {
+			display: none;
+		}
+	}
+
 	.script-select-container {
 		display: flex;
 		align-items: center;
