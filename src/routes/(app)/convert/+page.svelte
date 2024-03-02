@@ -77,6 +77,21 @@
 		</button>
 		<textarea lang={`ain-${mode.slice(5)}`} value={converted} readonly />
 	</output>
+
+	<h2>{$t('Ipiskikarpe Porokram')}</h2>
+
+	<ul>
+		<li>
+			<a href="https://www.npmjs.com/package/ainconv" target="_blank" rel="noopener">
+				ainconv - NPM (JavaScript)
+			</a>
+		</li>
+		<li>
+			<a href="https://crates.io/crates/ainconv" target="_blank" rel="noopener">
+				ainconv - Crates.io (Rust)
+			</a>
+		</li>
+	</ul>
 </main>
 
 <style>
