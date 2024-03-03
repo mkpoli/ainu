@@ -91,6 +91,11 @@
 				ainconv - Crates.io (Rust)
 			</a>
 		</li>
+		<li>
+			<a href="https://pypi.org/project/ainconv/" target="_blank" rel="noopener">
+				ainconv - PyPI (Python)
+			</a>
+		</li>
 	</ul>
 </main>
 
