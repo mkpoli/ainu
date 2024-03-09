@@ -81,33 +81,41 @@
 		</div>
 
 		<class class="cards">
-			<div class="card">
-				<h3>
-					<a href="https://wiki.aynu.org/" target="_blank">
-						{$t('Aynuwiki a=kar')}
-					</a>
-				</h3>
-				<img class="card-image" src={aynuwikiScreenshot} alt="Aynuwiki" />
-				<div class="card-description" role="doc-subtitle">
-					<span lang="ja">アイヌ語によるオンライン百科事典</span>
-					<span lang="en">Online Encyclopedia in Ainu</span>
-					<span lang="ru">Онлайн-энциклопедия на айнском языке</span>
+			<a href="https://wiki.aynu.org/" target="_blank" class="card-link">
+				<div class="card">
+					<h3>
+						<a href="https://wiki.aynu.org/" target="_blank">
+							{$t('Aynuwiki a=kar')}
+						</a>
+					</h3>
+					<img class="card-image" src={aynuwikiScreenshot} alt="Aynuwiki" />
+					<div class="card-description" role="doc-subtitle">
+						<span lang="ja">アイヌ語によるオンライン百科事典</span>
+						<span lang="en">Online Encyclopedia in Ainu</span>
+						<span lang="ru">Онлайн-энциклопедия на айнском языке</span>
+					</div>
 				</div>
-			</div>
-			<div class="card">
-				<h3>
-					<a href="https://incubator.wikimedia.org/wiki/Wp/ain/Main%20Page" target="_blank">
-						{$t('Wikipenciya a=kar')}
-					</a>
-				</h3>
-				<img class="card-image" src={wikipediaScreenshot} alt="Wikipedia Incubator" />
-				<div class="card-description" role="doc-subtitle">
-					<span lang="ja">ウィキペディア誕生プロジェクト</span>
-					<span lang="en">Wikipedia Incubator Project</span>
-					<span lang="ru">Проект Инкубатора Википедии</span>
+			</a>
+			<a
+				href="https://incubator.wikimedia.org/wiki/Wp/ain/Main%20Page"
+				target="_blank"
+				class="card-link"
+			>
+				<div class="card">
+					<h3>
+						<a href="https://incubator.wikimedia.org/wiki/Wp/ain/Main%20Page" target="_blank">
+							{$t('Wikipenciya a=kar')}
+						</a>
+					</h3>
+					<img class="card-image" src={wikipediaScreenshot} alt="Wikipedia Incubator" />
+					<div class="card-description" role="doc-subtitle">
+						<span lang="ja">ウィキペディア誕生プロジェクト</span>
+						<span lang="en">Wikipedia Incubator Project</span>
+						<span lang="ru">Проект Инкубатора Википедии</span>
+					</div>
 				</div>
-			</div></class
-		>
+			</a>
+		</class>
 	</section>
 	<section id="tools">
 		<h2>{$t('Aeywankep')}</h2>
@@ -494,5 +502,10 @@
 
 	.sns a:active {
 		color: #c9c9c9;
+	}
+
+	a.card-link {
+		text-decoration: none;
+		color: inherit;
 	}
 </style>
