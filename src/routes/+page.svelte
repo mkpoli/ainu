@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-	<title>{$t('Aynuitak Inuypa Ukosammaani Sayto')}</title>
+	<title>{$t('Aynuitak Inuypa Ukosammaani Sait')}</title>
 </svelte:head>
 
 <main>
@@ -20,7 +20,7 @@
 		<div class="title-content">
 			<Ayus />
 			<div>
-				<h1>{$t('Aynuitak Inuypa Ukosammaani Sayto')}</h1>
+				<h1>{$t('Aynuitak Inuypa Ukosammaani Sait')}</h1>
 				<div role="doc-subtitle">
 					<span lang="ja"> アイヌ語執筆支援サイト </span>
 					<span lang="en"> Ainu Language Writing Support Site </span>
