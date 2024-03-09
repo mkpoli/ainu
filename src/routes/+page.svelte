@@ -71,15 +71,26 @@
 		<class class="cards">
 			<div class="card">
 				<h3>
+					<a href="https://wiki.aynu.org/" target="_blank">
+						{$t('Aynuwiki a=kar')}
+					</a>
+				</h3>
+				<div class="card-description" role="doc-subtitle">
+					<span lang="ja">アイヌ語によるオンライン百科事典</span>
+					<span lang="en">Online Encyclopedia in Ainu</span>
+					<span lang="ru">Онлайн-энциклопедия на айнском языке</span>
+				</div>
+			</div>
+			<div class="card">
+				<h3>
 					<a href="https://incubator.wikimedia.org/wiki/Wp/ain/Main%20Page" target="_blank">
-						Wikipenciya a=kar
+						{$t('Wikipenciya a=kar')}
 					</a>
 				</h3>
 				<div class="card-description" role="doc-subtitle">
 					<span lang="ja">ウィキペディア誕生プロジェクト</span>
 					<span lang="en">Wikipedia Incubator Project</span>
 					<span lang="ru">Проект Инкубатора Википедии</span>
-					<div />
 				</div>
 			</div></class
 		>
