@@ -71,6 +71,15 @@
 				>Поддержать письмо на айнском языке и способствовать его современному развитию</span
 			>
 		</div>
+	</section>
+	<section id="projects">
+		<h2>{$t('Cikarkoranpe')}</h2>
+		<div role="doc-subtitle" lang="ja">
+			<span lang="ja">プロジェクト</span>
+			<span lang="en">Projects</span>
+			<span lang="ru">Проекты</span>
+		</div>
+
 		<class class="cards">
 			<div class="card">
 				<h3>
