@@ -5,6 +5,9 @@
 	import { script, t } from '$lib/convert';
 	import MaterialSymbolsFitbitArrowDownwardRounded from '~icons/material-symbols/fitbit-arrow-downward-rounded';
 	import RiDiscordFill from '~icons/ri/discord-fill';
+
+	import aynuwikiScreenshot from '$assets/wiki.aynu.org.png';
+	import wikipediaScreenshot from '$assets/wikipedia.incubator.png';
 </script>
 
 <svelte:head>
@@ -75,6 +78,7 @@
 						{$t('Aynuwiki a=kar')}
 					</a>
 				</h3>
+				<img class="card-image" src={aynuwikiScreenshot} alt="Aynuwiki" />
 				<div class="card-description" role="doc-subtitle">
 					<span lang="ja">アイヌ語によるオンライン百科事典</span>
 					<span lang="en">Online Encyclopedia in Ainu</span>
@@ -87,6 +91,7 @@
 						{$t('Wikipenciya a=kar')}
 					</a>
 				</h3>
+				<img class="card-image" src={wikipediaScreenshot} alt="Wikipedia Incubator" />
 				<div class="card-description" role="doc-subtitle">
 					<span lang="ja">ウィキペディア誕生プロジェクト</span>
 					<span lang="en">Wikipedia Incubator Project</span>
@@ -359,10 +364,11 @@
 		justify-content: center;
 		width: 100%;
 		max-width: 25em;
-		padding: 1em;
+		padding: 1em 0;
 		margin: 1em;
 		border-radius: 1em;
 		box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+		gap: 0.5em;
 	}
 
 	.card a {
@@ -386,6 +392,11 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+	}
+
+	.card-image {
+		width: 100%;
+		object-fit: fill;
 	}
 
 	section {
