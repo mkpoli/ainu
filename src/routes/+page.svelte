@@ -193,7 +193,7 @@
 						>
 					</td>
 					<td>
-						<span>Ingurisitak-Aynuitak</span><br /><span lang="en">English-Ainu</span>
+						<span>Inkiriskuritak-Aynuitak</span><br /><span lang="en">English-Ainu</span>
 					</td>
 					<td> 3500 </td>
 				</tr>
@@ -223,7 +223,7 @@
 						</a>
 					</td>
 					<td>
-						<span>Aynuitak-Ingurisitak</span><br /><span lang="en">Ainu-English</span>
+						<span>Aynuitak-Inkiriskuritak</span><br /><span lang="en">Ainu-English</span>
 					</td>
 					<td> 600 </td>
 				</tr>
