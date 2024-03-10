@@ -227,7 +227,27 @@
 					</td>
 					<td> 600 </td>
 				</tr>
-			</tbody>
+				<tr>
+					<td>
+						<a
+							href="https://docs.google.com/spreadsheets/u/2/d/1zV0gl4TWV5fkf2r9i_1P1jmH_p7LOzbhZQgm7mPwDdE/edit?usp=sharing"
+							target="_blank"
+						>
+							<span lang="ja">現代アイヌ語翻訳用語集</span>
+							<br />
+							<span lang="en">Modern Ainu Translation Glossary</span>
+						</a>
+					</td>
+					<td>
+						<span>Aynuitak-Inkiriskuritak-Sisamitak</span>
+						<br />
+						<span lang="en">Ainu-English-Japanese</span>
+						<br />
+						<span lang="ja">アイヌ語・英語・日本語</span>
+					</td>
+					<td> 500 </td>
+				</tr></tbody
+			>
 		</table>
 		<p><i>{$t('Ainuitak-Nucaitak-Eonnekunnep tane isam. a=eramuan yakun i=pakasnu yan!')}</i></p>
 		<h3>
