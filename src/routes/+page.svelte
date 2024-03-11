@@ -295,6 +295,12 @@
 							>ニューエクスプレス・スペシャル日本語の隣人たち　Ⅰ＋Ⅱ</a
 						>』白水社（樺太アイヌ語）
 					</li>
+					<li>
+						日本語Wikibooks『<a
+							href="https://ja.wikibooks.org/wiki/%E3%82%A2%E3%82%A4%E3%83%8C%E8%AA%9E"
+							target="_blank">アイヌ語</a
+						>』
+					</li>
 				</ul>
 			</li>
 		</ul>
