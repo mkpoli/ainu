@@ -1,4 +1,4 @@
-# Aynuitak Inuypa Ukosamaani Sait / アイヌ語執筆支援サイト
+# Aynuitak-nuye Ukosamaani Sait / アイヌ語執筆支援サイト
 
 ## Developing
 

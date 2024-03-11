@@ -5,7 +5,7 @@
 
 <header>
 	<a class="logo" href="/">
-		{$t('Aynuitak Inuypa Ukosamaani Sait')}
+		{$t('Aynuitak-nuye Ukosamaani Sait')}
 	</a>
 
 	<nav>
