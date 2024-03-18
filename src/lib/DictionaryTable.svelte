@@ -73,8 +73,8 @@
 					<a href={url} lang="ja" target="_blank">{@html name.replaceAll(/\n/g, '<br />')}</a>
 				</td>
 				<td>
-					{#each languages as language}
-						<span>{language}</span><br />
+					{#each languages as language, i}
+						<span>{i === 0 ? language.split('-').map($t).join('-') : language}</span><br />
 					{/each}
 				</td>
 				<td> {count} </td>
