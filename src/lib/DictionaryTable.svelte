@@ -25,16 +25,23 @@
 			count: 12500
 		},
 		{
+			url: 'http://itelmen.placo.net/Ainu-archives/index.html',
+			name: 'アイヌ語鵜川方言　日本語―アイヌ語辞典',
+			dialect: 'Muka',
+			languages: ['Sisamitak-Aynuitak', '日本語・アイヌ語'],
+			count: 6300
+		},
+		{
 			url: 'https://ainu.ninjal.ac.jp/topic/',
 			name: 'トピック別 アイヌ語会話辞典',
-			dialect: 'Sar?',
+			dialect: 'Sar',
 			languages: ['Sisamitak-Aynuitak', '日本語・アイヌ語'],
 			count: 3500
 		},
 		{
 			url: 'https://ainu.ninjal.ac.jp/topic/en/',
 			name: 'Topical Dictionary of Conversational Ainu',
-			dialect: 'Sar?',
+			dialect: 'Sar',
 			languages: ['Inkiriskuritak-Aynuitak', 'English-Ainu'],
 			count: 3500
 		},
