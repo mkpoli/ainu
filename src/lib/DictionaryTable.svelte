@@ -26,7 +26,7 @@
 		},
 		{
 			url: 'http://itelmen.placo.net/Ainu-archives/index.html',
-			name: 'アイヌ語鵜川方言　日本語―アイヌ語辞典',
+			name: 'アイヌ語鵡川方言　日本語―アイヌ語辞典',
 			dialect: 'Muka',
 			languages: ['Sisamitak-Aynuitak', '日本語・アイヌ語'],
 			count: 6300
