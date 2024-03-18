@@ -101,3 +101,33 @@
 		</tr></tbody
 	>
 </table>
+
+<style>
+	table {
+		border-collapse: collapse;
+	}
+
+	th,
+	td {
+		border-top: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+		padding: 0.25em 0.5em;
+	}
+
+	th:first-child {
+		border-left: 0;
+	}
+
+	td:first-child {
+		border-left: 0;
+	}
+
+	th:last-child {
+		border-right: 0;
+	}
+
+	td:last-child {
+		text-align: right;
+		border-right: 0;
+	}
+</style>
