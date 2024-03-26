@@ -15,8 +15,11 @@ import {
 const AINU_LATN_WORD_PATTERN = /([a-zA-Z\p'\-=∅ø]+)/;
 
 export function convertLatn2Kana(latn: string): string {
-	const words = latn.toLowerCase().split(/\s+/).filter(Boolean);
+	const words = latn.toLowerCase().split(/(\s+)/).filter(Boolean);
 	const convertedWords = words.map((word) => {
+		if (word.match(/\s+/)) {
+			return word;
+		}
 		if (word.match(AINU_LATN_WORD_PATTERN)) {
 			try {
 				return convertLatnToKana(word);
@@ -28,7 +31,7 @@ export function convertLatn2Kana(latn: string): string {
 			return word;
 		}
 	});
-	return convertedWords.join(' ');
+	return convertedWords.join('');
 }
 export function convertLatn2Cyrl(latn: string): string {
 	const words = latn.toLowerCase().split(/\s+/).filter(Boolean);
