@@ -211,10 +211,10 @@
 				{$t('Sisam’itak')}
 				<ul lang="ja">
 					<li>
-						金田一京助・知里眞志保（1936）『「<a
+						金田一京助・知里眞志保（1936）『<a
 							href="https://archive.org/details/ainugohgaisetsu00kind/"
 							target="_blank">アイヌ語法概説</a
-						>』
+						>』岩波書店
 					</li>
 					<li>
 						佐藤知己（2008）『<a
