@@ -199,6 +199,48 @@
 			</li>
 		</ul>
 	</section>
+	<section id="grammar-books">
+		<h2>{$t('Itakirenkasos')}</h2>
+		<div role="doc-subtitle" lang="ja">
+			<span lang="ja">文法書</span>
+			<span lang="en">Grammars</span>
+			<span lang="ru">Грамматики</span>
+		</div>
+		<ul>
+			<li>
+				{$t('Sisam’itak')}
+				<ul lang="ja">
+					<li>
+						金田一京助・知里眞志保（1936）『「<a
+							href="https://archive.org/details/ainugohgaisetsu00kind/"
+							target="_blank">アイヌ語法概説</a
+						>』
+					</li>
+					<li>
+						佐藤知己（2008）『<a
+							href="http://www.daigakusyorin.co.jp/book/b12162.html"
+							target="_blank">アイヌ語文法の基礎</a
+						>』大学書林
+					</li>
+					<li>
+						中川裕（2024）『<a href="https://www.hakusuisha.co.jp/book/b649849.html" target="_blank"
+							>アイヌ語広文典</a
+						>』白水社
+					</li>
+				</ul>
+			</li>
+			<li>
+				{$t('Inkiriskur’itak')}
+				<ul>
+					<li>
+						Silja Ijas (2023) <a href="https://sites.google.com/view/aynu-itak/home" target="_blank"
+							><i>Ainu Language Grammar Guide</i></a
+						>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
 	<section id="resource">
 		<h2>{$t('Itaksay')}</h2>
 		<div role="doc-subtitle" lang="ja">
