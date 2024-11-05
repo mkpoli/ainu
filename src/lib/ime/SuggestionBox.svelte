@@ -1,15 +1,25 @@
 <script lang="ts">
+	import { run, createBubbler, preventDefault } from 'svelte/legacy';
+
+	const bubble = createBubbler();
 	import { createEventDispatcher, tick } from 'svelte';
 	import { fly, fade } from 'svelte/transition';
 
-	export let suggestions: string[];
-	export let box: HTMLDivElement;
-	export let rect: DOMRect | undefined;
-	export let textArea: HTMLTextAreaElement | undefined;
-	export let formatPage: (
-		pages: [cur: number, all: number],
-		items: [cur: number, all: number]
-	) => string = (pages, items) => `Page ${pages[0]} of ${pages[1]} (${items[0]} / ${items[1]})`;
+	interface Props {
+		suggestions: string[];
+		box: HTMLDivElement | undefined;
+		rect: DOMRect | undefined;
+		textArea: HTMLTextAreaElement | undefined;
+		formatPage?: (pages: [cur: number, all: number], items: [cur: number, all: number]) => string;
+	}
+
+	let {
+		suggestions,
+		box = $bindable(),
+		rect,
+		textArea,
+		formatPage = (pages, items) => `Page ${pages[0]} of ${pages[1]} (${items[0]} / ${items[1]})`
+	}: Props = $props();
 
 	const dispatch = createEventDispatcher<{
 		select: string;
@@ -17,23 +27,13 @@
 
 	const PAGE_SIZE = 9;
 
-	let focused: boolean = false;
-	let shown: boolean = false;
-	$: shown = focused && suggestions.length > 0;
-	$: console.log(shown);
+	let focused: boolean = $state(false);
+	let shown: boolean = $state(false);
 
-	let pages: string[][] = [];
+	let pages: string[][] = $state([]);
 
-	let page: number = 0; // index of the page of suggestions
-	let highlighted: number = 0; // index of the highlighted suggestion inside a page
-
-	$: pages = Array.from({ length: Math.ceil(suggestions.length / PAGE_SIZE) }, (_, i) =>
-		suggestions.slice(i * PAGE_SIZE, (i + 1) * PAGE_SIZE)
-	);
-
-	$: if (textArea) {
-		initEvents(textArea);
-	}
+	let page: number = $state(0); // index of the page of suggestions
+	let highlighted: number = $state(0); // index of the highlighted suggestion inside a page
 
 	function initEvents(textarea: HTMLTextAreaElement) {
 		textarea.addEventListener('keydown', (e) => {
@@ -112,9 +112,28 @@
 		textarea.addEventListener('blur', () => (focused = false));
 	}
 
-	$: (highlighted = 0), page, suggestions;
-
-	$: console.log(highlighted, page, suggestions);
+	run(() => {
+		shown = focused && suggestions.length > 0;
+	});
+	run(() => {
+		console.log(shown);
+	});
+	run(() => {
+		pages = Array.from({ length: Math.ceil(suggestions.length / PAGE_SIZE) }, (_, i) =>
+			suggestions.slice(i * PAGE_SIZE, (i + 1) * PAGE_SIZE)
+		);
+	});
+	run(() => {
+		if (textArea) {
+			initEvents(textArea);
+		}
+	});
+	run(() => {
+		(highlighted = 0), page, suggestions;
+	});
+	run(() => {
+		console.log(highlighted, page, suggestions);
+	});
 </script>
 
 <!-- <svelte:window on:keyup={(e) => {}} /> -->
@@ -130,8 +149,8 @@
 			{#each pages[page] as suggestion, i}
 				<li class:active={highlighted === i}>
 					<button
-						on:mousedown|preventDefault
-						on:click={async () => {
+						onmousedown={preventDefault(bubble('mousedown'))}
+						onclick={async () => {
 							dispatch('select', suggestion);
 							await tick();
 							shown = false;
@@ -153,8 +172,11 @@
 		position: absolute;
 		z-index: 10005;
 
-		box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 11px rgba(0, 0, 0, 0.18),
-			0 4px 15px rgba(0, 0, 0, 0.15), 0 9px 46px rgba(0, 0, 0, 0.23);
+		box-shadow:
+			0 0 0 1px rgba(0, 0, 0, 0.1),
+			0 4px 11px rgba(0, 0, 0, 0.18),
+			0 4px 15px rgba(0, 0, 0, 0.15),
+			0 9px 46px rgba(0, 0, 0, 0.23);
 
 		display: flex;
 		flex-direction: column;

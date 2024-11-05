@@ -1,7 +1,7 @@
 import type { ActionReturn } from 'svelte/action';
 
 interface Attributes {
-	'on:caretmove': (
+	oncaretmove: (
 		event: CustomEvent<{
 			rect: DOMRect;
 			spanRect: DOMRect;

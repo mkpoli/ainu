@@ -1,3 +1,4 @@
+<!-- @migration-task Error while migrating Svelte code: `<a>` is invalid inside `<a>` -->
 <script lang="ts">
 	import Ayus from '$assets/Ayus.svelte';
 	import ScriptSelect from '$lib/ScriptSelect.svelte';
@@ -46,7 +47,7 @@
 		</div>
 
 		<button
-			on:click={() => {
+			onclick={() => {
 				const section = document.querySelector('section:nth-of-type(2)');
 				if (section) {
 					section.scrollIntoView({ behavior: 'smooth' });
@@ -85,9 +86,7 @@
 			<a href="https://wiki.aynu.org/" target="_blank" class="card-link">
 				<div class="card">
 					<h3>
-						<a href="https://wiki.aynu.org/" target="_blank">
-							{$t('Aynuwiki a=kar')}
-						</a>
+						{$t('Aynuwiki a=kar')}
 					</h3>
 					<img class="card-image" src={aynuwikiScreenshot} alt="Aynuwiki" />
 					<div class="card-description" role="doc-subtitle">
@@ -104,9 +103,7 @@
 			>
 				<div class="card">
 					<h3>
-						<a href="https://incubator.wikimedia.org/wiki/Wp/ain/Main%20Page" target="_blank">
-							{$t('Wikipenciya a=kar')}
-						</a>
+						{$t('Wikipenciya a=kar')}
 					</h3>
 					<img class="card-image" src={wikipediaScreenshot} alt="Wikipedia Incubator" />
 					<div class="card-description" role="doc-subtitle">

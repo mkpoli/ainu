@@ -1,6 +1,11 @@
 <script lang="ts">
 	import ScriptSelect from '$lib/ScriptSelect.svelte';
 	import { t } from '$lib/convert';
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
+
+	let { children }: Props = $props();
 </script>
 
 <header>
@@ -13,7 +18,7 @@
 		<ScriptSelect />
 	</nav>
 </header>
-<slot />
+{@render children?.()}
 
 <style>
 	.logo {

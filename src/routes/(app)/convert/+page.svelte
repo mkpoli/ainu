@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import {
 		t,
 		convertLatn2Kana,
@@ -11,14 +13,16 @@
 	import Textarea from '$lib/ime/Textarea.svelte';
 	import IcBaselineContentCopy from '~icons/ic/baseline-content-copy';
 
-	let input: string = '';
-	let converted: string = '';
+	let input: string = $state('');
+	let converted: string = $state('');
 
-	let lastConverted: string = '';
+	let lastConverted: string = $state('');
 
 	type Mode = 'Latn2Kana' | 'Latn2Cyrl' | 'Kana2Latn' | 'Cyrl2Latn' | 'Kana2Cyrl' | 'Cyrl2Kana';
 
-	$: {
+
+	let mode: Mode = $state('Latn2Kana');
+	run(() => {
 		try {
 			switch (mode) {
 				case 'Latn2Kana':
@@ -44,9 +48,7 @@
 		} catch (e) {
 			converted = lastConverted;
 		}
-	}
-
-	let mode: Mode = 'Latn2Kana';
+	});
 </script>
 
 <svelte:head>
@@ -69,13 +71,13 @@
 
 	<output>
 		<button
-			on:click={() => {
+			onclick={() => {
 				navigator.clipboard.writeText(converted);
 			}}
 		>
 			<IcBaselineContentCopy />
 		</button>
-		<textarea lang={`ain-${mode.slice(5)}`} value={converted} readonly />
+		<textarea lang={`ain-${mode.slice(5)}`} value={converted} readonly></textarea>
 	</output>
 
 	<h2>{$t('Ipiskikarpe Porokram')}</h2>

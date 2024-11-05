@@ -3,10 +3,13 @@
 	import Textarea from '$lib/ime/Textarea.svelte';
 	import { t } from '$lib/convert';
 	import { groupTokens, type TokenGroup, type UposToken } from '$lib/analyze';
-	export let input: string =
-		'Irankarapte! Mkpoli sekor ku=rehe an. itak=as awa pon rupne aynu ene itaki.\n\nIskar emko ta sino nispa a=ne hine an=an hike pak ison kur isam ison kur a=ne, pirka menoko a=macihi ne wa a=hekote katkemat po hene, i=pirkakor kor i=nunuke kor oka=an pe ne kor ora posak=an wa poeykoytupa=an sin uma po hene po eykoytupa kor an hawe ene an hi. “kotan kor nispa sine matnepo kor wa katu a=nukar noyne pirka katu pirka menoko ne ruwe ne na, ponmat ne etun yan. yakne po kor yakne ikoyomap poka =an kus ne na.” sekor kane hawean ruwe  ne korka a=erampokiwen a=iruskare ka erampokiwen kus nena a=kosomotasnu wa an=an a p konto ipe ka  somo ki no cis kor ye hi kusu oraun a=etun akusu pon yupihi  poro yupihi onaha unuhu an pe ne p ramuosma pa hine mat ne a=etun h ine pon mat ne a=kor ruwe ne akus  nani honkor hine,  pirka okkayo poison kor ruwe ne akusu orano nea iunune p tekehe kere siri ka isam no a=poro maci patek huraye ne ya kay ne ya ki sorekusu arikiki p ne kus  nen nen nukannukar kor oka=an ruwe ne ayne tane pastetterke apkas wa earkinne sukupasnu wa po a=ey aykopuntek kor oka=an rapokke tane a=kor son a=eyam wa somo  kimun=an a korka hanke kuca cise ka a=kor tuyma kuca cise ka a=kor pe ne hi kusu';
+	interface Props {
+		input?: string;
+	}
 
-	let grouped: TokenGroup[] = [];
+	let { input = $bindable('Irankarapte! Mkpoli sekor ku=rehe an. itak=as awa pon rupne aynu ene itaki.\n\nIskar emko ta sino nispa a=ne hine an=an hike pak ison kur isam ison kur a=ne, pirka menoko a=macihi ne wa a=hekote katkemat po hene, i=pirkakor kor i=nunuke kor oka=an pe ne kor ora posak=an wa poeykoytupa=an sin uma po hene po eykoytupa kor an hawe ene an hi. “kotan kor nispa sine matnepo kor wa katu a=nukar noyne pirka katu pirka menoko ne ruwe ne na, ponmat ne etun yan. yakne po kor yakne ikoyomap poka =an kus ne na.” sekor kane hawean ruwe  ne korka a=erampokiwen a=iruskare ka erampokiwen kus nena a=kosomotasnu wa an=an a p konto ipe ka  somo ki no cis kor ye hi kusu oraun a=etun akusu pon yupihi  poro yupihi onaha unuhu an pe ne p ramuosma pa hine mat ne a=etun h ine pon mat ne a=kor ruwe ne akus  nani honkor hine,  pirka okkayo poison kor ruwe ne akusu orano nea iunune p tekehe kere siri ka isam no a=poro maci patek huraye ne ya kay ne ya ki sorekusu arikiki p ne kus  nen nen nukannukar kor oka=an ruwe ne ayne tane pastetterke apkas wa earkinne sukupasnu wa po a=ey aykopuntek kor oka=an rapokke tane a=kor son a=eyam wa somo  kimun=an a korka hanke kuca cise ka a=kor tuyma kuca cise ka a=kor pe ne hi kusu') }: Props = $props();
+
+	let grouped: TokenGroup[] = $state([]);
 
 	async function parse() {
 		const res = await fetch('/api/upos', {
@@ -47,7 +50,7 @@
 	<h1>{$t('Aynuitak Itak-ikiri Usaraye')}</h1>
 	<Textarea style="height: 15em;" bind:value={input} />
 	<!-- <textarea bind:value={input} /> -->
-	<button class="primary" on:click={parse}>{$t('a=usaraye')}</button>
+	<button class="primary" onclick={parse}>{$t('a=usaraye')}</button>
 	<p>
 		<a href="https://huggingface.co/KoichiYasuoka/deberta-base-ainu-upos"
 			>🤗KoichiYasuoka/deberta-base-ainu-upos</a

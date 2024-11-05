@@ -1,6 +1,5 @@
 <script lang="ts">
-	export let value: string = '';
-	export let lang: string = 'ain';
+	import { run } from 'svelte/legacy';
 
 	import { tick } from 'svelte';
 	import { caret } from '$lib/caret';
@@ -8,6 +7,13 @@
 
 	import WORD_FREQ_LIST from '$data/word_freq.tsv';
 	import EXTRA_WORD_LIST from '$data/already_exists.txt?raw';
+	interface Props {
+		value?: string;
+		lang?: string;
+		[key: string]: any;
+	}
+
+	let { value = $bindable(''), lang = 'ain', ...rest }: Props = $props();
 	const PERSONAL_AFFIXES = [
 		'ku=',
 		'k=',
@@ -35,9 +41,9 @@
 			.map((word) => ({ word, freq: 0 }))
 	];
 
-	let suggestionBox: HTMLDivElement;
+	let suggestionBox: HTMLDivElement | undefined = $state();
 
-	let suggestions: string[] = ['a', 'b', 'c'];
+	let suggestions: string[] = $state(['a', 'b', 'c']);
 
 	// function getLastChar()
 
@@ -60,12 +66,13 @@
 			.map(({ word }) => word);
 	}
 
-	$: suggestions = compileSuggestions(value, caretPos, dictionary);
+	let textArea: HTMLTextAreaElement | undefined = $state();
 
-	let textArea: HTMLTextAreaElement;
-
-	let caretRect: DOMRect | undefined = undefined;
-	let caretPos: number = 0;
+	let caretRect: DOMRect | undefined = $state(undefined);
+	let caretPos: number = $state(0);
+	run(() => {
+		suggestions = compileSuggestions(value, caretPos, dictionary);
+	});
 </script>
 
 <div>
@@ -85,7 +92,7 @@
 				(afterCaret.startsWith(' ') ? '' : ' ') +
 				afterCaret;
 			await tick();
-			textArea.setSelectionRange(
+			textArea?.setSelectionRange(
 				value.length - afterCaret.length,
 				value.length - afterCaret.length
 			);
@@ -98,7 +105,7 @@
 		bind:value
 		bind:this={textArea}
 		use:caret
-		on:caretmove={({
+		oncaretmove={({
 			detail: {
 				rect,
 				selection: { end }
@@ -107,8 +114,8 @@
 			caretRect = rect;
 			caretPos = end;
 		}}
-		{...$$restProps}
-	/>
+		{...rest}
+	></textarea>
 </div>
 
 <style>
