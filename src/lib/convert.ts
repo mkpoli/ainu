@@ -1,3 +1,4 @@
+import { browser } from '$app/environment';
 import {
 	convertLatnToCyrl,
 	convertLatnToKana,
@@ -103,6 +104,11 @@ import { writable, derived } from 'svelte/store';
 export const script = writable<'Latn' | 'Kana' | 'Cyrl'>('Latn');
 export const languageCode = derived(script, ($script) => {
 	return `ain-${$script}`;
+});
+languageCode.subscribe((code) => {
+	if (browser) {
+		document.documentElement.lang = code;
+	}
 });
 export const t = derived(script, ($script) => {
 	if ($script === 'Latn') {
