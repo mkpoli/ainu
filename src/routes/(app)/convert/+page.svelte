@@ -20,6 +20,28 @@
 
 	type Mode = 'Latn2Kana' | 'Latn2Cyrl' | 'Kana2Latn' | 'Cyrl2Latn' | 'Kana2Cyrl' | 'Cyrl2Kana';
 
+	function convertPunctuations(text: string) {
+		switch (mode) {
+			case 'Latn2Kana':
+			case 'Cyrl2Kana':
+				text = text.replaceAll(/, ?/g, '、');
+				text = text.replaceAll(/\. ?/g, '。');
+				text = text.replaceAll(/; ?/g, '；');
+				text = text.replaceAll(/! ?/g, '！');
+				text = text.replaceAll(/\? ?/g, '？');
+				break;
+			case 'Kana2Latn':
+			case 'Cyrl2Latn':
+				text = text.replaceAll(/、/g, ', ');
+				text = text.replaceAll(/；/g, '; ');
+				text = text.replaceAll(/！/g, '! ');
+				text = text.replaceAll(/？/g, '? ');
+				break;
+			default:
+				break;
+		}
+		return text;
+	}
 
 	let mode: Mode = $state('Latn2Kana');
 	run(() => {
@@ -44,11 +66,14 @@
 					converted = convertCyrl2Kana(input);
 					break;
 			}
+			converted = punctuation ? convertPunctuations(converted) : converted;
 			lastConverted = converted;
 		} catch (e) {
 			converted = lastConverted;
 		}
 	});
+
+	let punctuation: boolean = $state(true);
 </script>
 
 <svelte:head>
@@ -81,6 +106,11 @@
 	</output>
 
 	<h2>{$t('Ipiskikarpe Porokram')}</h2>
+
+	<div style="display: flex; align-items: center; gap: 0.5em;">
+		<input type="checkbox" bind:checked={punctuation} id="punctuation" />
+		<label for="punctuation">{$t('Aytaksay’usarayep a=tupte')}</label>
+	</div>
 
 	<ul>
 		<li>
