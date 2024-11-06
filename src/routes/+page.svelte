@@ -6,7 +6,7 @@
 	import { script, t } from '$lib/convert';
 	import MaterialSymbolsFitbitArrowDownwardRounded from '~icons/material-symbols/fitbit-arrow-downward-rounded';
 	import RiDiscordFill from '~icons/ri/discord-fill';
-
+	import IconParkOutlineWritingFluently from '~icons/icon-park-outline/writing-fluently';
 	import aynuwikiScreenshot from '$assets/wiki.aynu.org.png';
 	import wikipediaScreenshot from '$assets/wikipedia.incubator.png';
 	import DictionaryTable from '$lib/DictionaryTable.svelte';
@@ -124,7 +124,8 @@
 		</div>
 		<div class="cards">
 			<div class="card">
-				<h3>
+				<h3 class="flex flex-col items-center justify-center gap-2">
+					<IconParkOutlineWritingFluently class="w-8 h-8" />
 					<a href="/convert">{$t('Ainuitak-Itokpa-Inuye Eutasare')}</a>
 				</h3>
 				<div class="card-description" role="doc-subtitle">
