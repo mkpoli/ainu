@@ -117,14 +117,14 @@
 		</div>
 
 		{#if mode.endsWith('Kana')}
-			<div style="display: flex; align-items: center; gap: 0.5em;">
+			<div style="display: flex; align-items: center;">
 				<div>tu/ту →</div>
 				<input type="radio" bind:group={options.tu_as} id="tu_as" value="トゥ" />
-				<label for="tu_as">トゥ</label>
+				<label for="tu_as" style="padding: 0 0.25em;">トゥ</label>
 				<input type="radio" bind:group={options.tu_as} id="tu_d" value="ト゚" />
-				<label for="tu_d">ト゚</label>
+				<label for="tu_d" style="padding: 0 0.25em;">ト゚</label>
 				<input type="radio" bind:group={options.tu_as} id="tsu_d" value="ツ゚" />
-				<label for="tsu_d">ツ゚</label>
+				<label for="tsu_d" style="padding: 0 0.25em;">ツ゚</label>
 			</div>
 		{/if}
 	</fieldset>
