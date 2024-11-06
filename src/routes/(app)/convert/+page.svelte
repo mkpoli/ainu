@@ -70,6 +70,9 @@
 			if (mode.endsWith('Kana') && converted.includes('ト゚')) {
 				converted = converted.replaceAll('ト゚', options.tu_as);
 			}
+			if (mode === 'Latn2Kana' && converted.includes(' p ')) {
+				converted = converted.replaceAll(' p ', ' ㇷ゚ ');
+			}
 			lastConverted = converted;
 		} catch (e) {
 			converted = lastConverted;
