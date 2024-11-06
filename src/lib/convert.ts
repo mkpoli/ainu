@@ -35,7 +35,7 @@ export function convertLatn2Kana(latn: string): string {
 	return convertedWords.join('');
 }
 export function convertLatn2Cyrl(latn: string): string {
-	const words = latn.toLowerCase().split(/\s+/).filter(Boolean);
+	const words = latn.split(/\s+/).filter(Boolean);
 	const convertedWords = words.map((word) => {
 		if (word.match(AINU_LATN_WORD_PATTERN)) {
 			try {
