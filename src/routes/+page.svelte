@@ -344,7 +344,9 @@
 				}
 			)}
 		</div>
+	</section>
 
+	<section id="resource">
 		<h2>{$t('Itaksay')}</h2>
 		<div role="doc-subtitle" lang="ja">
 			<span lang="ja">資料</span>
