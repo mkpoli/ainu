@@ -166,7 +166,7 @@
 			<span lang="en">Books</span>
 			<span lang="ru">Книги</span>
 		</div>
-		<div class="flex items-center justify-center gap-4">
+		<div class="grid grid-cols-1 gap-4">
 			{#snippet card(
 				title: {
 					ain: string;
@@ -190,7 +190,9 @@
 					>
 				>
 			)}
-				<div>
+				<div
+					class="grid grid-cols-1 items-center justify-center gap-2 border-2 bg-slate-100/50 border-slate-400 px-6 py-4 h-full rounded-lg shadow-lg"
+				>
 					<h3>{title.ain}</h3>
 					<div role="doc-subtitle">
 						<span lang="ja">{title.ja}</span>
@@ -204,17 +206,19 @@
 								en: 'Inkiriskur’itak',
 								ru: 'Nucaitak'
 							} as const}
+							<h4 class="font-bold">{LANG_TITLE[lang as keyof typeof LANG_TITLE]}</h4>
 							<li>
-								<span>{LANG_TITLE[lang as keyof typeof LANG_TITLE]}</span>
-
 								<ul>
 									{#each items as book}
 										<li>
 											{#if lang === 'ja'}
-												{book.author}
-												{#if book.year}
-													（{book.year}）
-												{/if}
+												<span class="text-sm">
+													{book.author}
+													{#if book.year}
+														（{book.year}）
+													{/if}
+												</span>
+
 												{#if book.type === 'book'}
 													{book.book && `, ${book.book}`}
 													『{#if book.link}
@@ -223,18 +227,24 @@
 														</a>
 													{:else}{book.title}{/if}』
 												{/if}
-												{book.publisher}
-												{book.notes && `（${book.notes}）`}
+												<span class="text-sm">
+													{book.publisher}
+													{book.notes && `（${book.notes}）`}
+												</span>
 											{:else}
-												{#if book.author}
-													{book.author}
-												{/if}
-												{#if book.year}
-													({book.year})
-												{/if}
+												<span class="text-sm">
+													{#if book.author}
+														{book.author}
+													{/if}
+													{#if book.year}
+														({book.year})
+													{/if}
+												</span>
 												<a href={book.link} class="italic" target="_blank">{book.title}</a>
-												{book.publisher && `, ${book.publisher}`}
-												{book.notes && `, ${book.notes}`}
+												<span class="text-sm">
+													{book.publisher && `, ${book.publisher}`}
+													{book.notes && `, ${book.notes}`}
+												</span>
 											{/if}
 										</li>
 									{/each}
