@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { run } from 'svelte/legacy';
-
+	import { options } from '$lib/options.svelte';
 	import {
 		t,
 		convertLatn2Kana,
@@ -66,19 +66,15 @@
 					converted = convertCyrl2Kana(input);
 					break;
 			}
-			converted = punctuation ? convertPunctuations(converted) : converted;
+			converted = options.punctuation ? convertPunctuations(converted) : converted;
 			if (mode.endsWith('Kana') && converted.includes('ト゚')) {
-				converted = converted.replaceAll('ト゚', tu_as);
+				converted = converted.replaceAll('ト゚', options.tu_as);
 			}
 			lastConverted = converted;
 		} catch (e) {
 			converted = lastConverted;
 		}
 	});
-
-	let punctuation: boolean = $state(true);
-
-	let tu_as: 'トゥ' | 'ト゚' | 'ツ゚' = $state('トゥ');
 </script>
 
 <svelte:head>
@@ -113,18 +109,18 @@
 	<fieldset style="display: flex; align-items: center; gap: 0.5em;  flex-direction: column;">
 		<legend>{$t('Inumke')}</legend>
 		<div style="display: flex; align-items: center; gap: 0.5em;">
-			<input type="checkbox" bind:checked={punctuation} id="punctuation" />
+			<input type="checkbox" bind:checked={options.punctuation} id="punctuation" />
 			<label for="punctuation">{$t('Aytaksay’usarayep a=tupte')}</label>
 		</div>
 
 		{#if mode.endsWith('Kana')}
 			<div style="display: flex; align-items: center; gap: 0.5em;">
 				<div>tu/ту →</div>
-				<input type="radio" bind:group={tu_as} id="tu_as" value="トゥ" />
+				<input type="radio" bind:group={options.tu_as} id="tu_as" value="トゥ" />
 				<label for="tu_as">トゥ</label>
-				<input type="radio" bind:group={tu_as} id="tu_d" value="ト゚" />
+				<input type="radio" bind:group={options.tu_as} id="tu_d" value="ト゚" />
 				<label for="tu_d">ト゚</label>
-				<input type="radio" bind:group={tu_as} id="tsu_d" value="ツ゚" />
+				<input type="radio" bind:group={options.tu_as} id="tsu_d" value="ツ゚" />
 				<label for="tsu_d">ツ゚</label>
 			</div>
 		{/if}
