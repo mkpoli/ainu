@@ -9,15 +9,7 @@
 		pages: string | undefined;
 	}
 
-	let {
-		title,
-		author,
-		year,
-		link,
-		journal,
-		volume,
-		pages
-	}: Props = $props();
+	let { title, author, year, link, journal, volume, pages }: Props = $props();
 </script>
 
 {author} ({year}) <a href={link}>{title}</a>. <i>{journal}</i>. {@html volume &&
