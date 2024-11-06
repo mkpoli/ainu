@@ -158,91 +158,193 @@
 			</li>
 		</ul>
 	</section>
-	<section id="textbooks">
-		<h2>{$t('Cioypakasnup')}</h2>
+
+	<section id="books">
+		<h2>{$t('Kampisos')}</h2>
 		<div role="doc-subtitle" lang="ja">
-			<span lang="ja">教材</span>
-			<span lang="en">Textbooks</span>
-			<span lang="ru">Учебники</span>
+			<span lang="ja">書籍</span>
+			<span lang="en">Books</span>
+			<span lang="ru">Книги</span>
 		</div>
-		<ul>
-			<li>
-				Sisamitak
-				<ul lang="ja">
-					<li>
-						公益財団法人 アイヌ語民俗文化財団「<a
-							href="https://www.ff-ainu.or.jp/web/potal_site/details/post.html"
-							target="_blank">アイヌ語教材テキスト</a
-						>」（各方言）
-					</li>
-					<li>
-						STV『<a href="https://www.stv.jp/radio/ainugo/index.html" target="_blank"
-							>アイヌ語ラジオ講座</a
-						>』白水社（各方言）
-					</li>
-					<li>
-						中川裕『<a href="https://www.hakusuisha.co.jp/book/b584600.html" target="_blank"
-							>ニューエクスプレスプラス アイヌ語</a
-						>』白水社（沙流方言）
-					</li>
-					<li>
-						丹菊逸治『<a href="https://www.hakusuisha.co.jp/book/b592865.html" target="_blank"
-							>ニューエクスプレス・スペシャル日本語の隣人たち　Ⅰ＋Ⅱ</a
-						>』白水社（樺太アイヌ語）
-					</li>
-					<li>
-						日本語Wikibooks『<a
-							href="https://ja.wikibooks.org/wiki/%E3%82%A2%E3%82%A4%E3%83%8C%E8%AA%9E"
-							target="_blank">アイヌ語</a
-						>』
-					</li>
-				</ul>
-			</li>
-		</ul>
-	</section>
-	<section id="grammar-books">
-		<h2>{$t('Itakirenkasos')}</h2>
-		<div role="doc-subtitle" lang="ja">
-			<span lang="ja">文法書</span>
-			<span lang="en">Grammars</span>
-			<span lang="ru">Грамматики</span>
+		<div class="flex items-center justify-center gap-4">
+			{#snippet card(
+				title: {
+					ain: string;
+					ja: string;
+					en: string;
+					ru: string;
+				},
+				books: Partial<
+					Record<
+						'ja' | 'en' | 'ru',
+						{
+							type: 'book' | 'article';
+							title: string;
+							link?: string;
+							notes?: string;
+							author?: string;
+							publisher?: string;
+							year?: string;
+							book?: string;
+						}[]
+					>
+				>
+			)}
+				<div>
+					<h3>{title.ain}</h3>
+					<div role="doc-subtitle">
+						<span lang="ja">{title.ja}</span>
+						<span lang="en">{title.en}</span>
+						<span lang="ru">{title.ru}</span>
+					</div>
+					<ul>
+						{#each Object.entries(books) as [lang, items]}
+							{@const LANG_TITLE = {
+								ja: 'Sisam’itak',
+								en: 'Inkiriskur’itak',
+								ru: 'Nucaitak'
+							} as const}
+							<li>
+								<span>{LANG_TITLE[lang as keyof typeof LANG_TITLE]}</span>
+
+								<ul>
+									{#each items as book}
+										<li>
+											{#if lang === 'ja'}
+												{book.author}
+												{#if book.year}
+													（{book.year}）
+												{/if}
+												{#if book.type === 'book'}
+													{book.book && `, ${book.book}`}
+													『{#if book.link}
+														<a href={book.link} target="_blank">
+															{book.title}
+														</a>
+													{:else}{book.title}{/if}』
+												{/if}
+												{book.publisher}
+												{book.notes && `（${book.notes}）`}
+											{:else}
+												{#if book.author}
+													{book.author}
+												{/if}
+												{#if book.year}
+													({book.year})
+												{/if}
+												<a href={book.link} class="italic" target="_blank">{book.title}</a>
+												{book.publisher && `, ${book.publisher}`}
+												{book.notes && `, ${book.notes}`}
+											{/if}
+										</li>
+									{/each}
+								</ul>
+							</li>
+						{/each}
+					</ul>
+				</div>
+			{/snippet}
+
+			<!-- textbooks -->
+			{@render card(
+				{
+					ain: 'Cioypakasnup',
+					ja: '教材',
+					en: 'Textbooks',
+					ru: 'Учебники'
+				},
+				{
+					ja: [
+						{
+							type: 'book',
+							author: '公益財団法人 アイヌ民族文化財団',
+							title: 'アイヌ語教材テキスト',
+							link: 'https://www.ff-ainu.or.jp/web/potal_site/details/post.html',
+							notes: '各方言'
+						},
+						{
+							type: 'book',
+							author: 'STV',
+							title: 'アイヌ語ラジオ講座',
+							link: 'https://www.stv.jp/radio/ainugo/index.html',
+							publisher: '財団法人アイヌ文化振興・研究推進機構',
+							notes: '各方言'
+						},
+						{
+							type: 'book',
+							author: '中川裕',
+							title: 'ニューエクスプレスプラス アイヌ語',
+							link: 'https://www.hakusuisha.co.jp/book/b584600.html',
+							publisher: '白水社',
+							year: '2018',
+							notes: '沙流方言'
+						},
+						{
+							type: 'book',
+							author: '丹菊逸治',
+							title: 'ニューエクスプレス・スペシャル日本語の隣人たち　Ⅰ＋Ⅱ',
+							link: 'https://www.hakusuisha.co.jp/book/b592865.html',
+							publisher: '白水社',
+							year: '2018',
+							notes: '樺太アイヌ語'
+						},
+						{
+							type: 'book',
+							author: '日本語Wikibooks',
+							title: 'アイヌ語',
+							link: 'https://ja.wikibooks.org/wiki/%E3%82%A2%E3%82%A4%E3%83%8C%E8%AA%9E'
+						}
+					]
+				}
+			)}
+
+			{@render card(
+				{
+					ain: 'Itakirenkasos',
+					ja: '文法書',
+					en: 'Grammars',
+					ru: 'Грамматики'
+				},
+				{
+					ja: [
+						{
+							type: 'book',
+							title: 'アイヌ語法概説',
+							link: 'https://archive.org/details/ainugohgaisetsu00kind/',
+							publisher: '岩波書店',
+							year: '1936',
+							author: '金田一京助・知里眞志保'
+						},
+						{
+							type: 'book',
+							title: 'アイヌ語文法の基礎',
+							link: 'http://www.daigakusyorin.co.jp/book/b12162.html',
+							publisher: '大学書林',
+							year: '2008',
+							author: '佐藤知己'
+						},
+						{
+							type: 'book',
+							title: 'アイヌ語広文典',
+							link: 'https://www.hakusuisha.co.jp/book/b649849.html',
+							publisher: '白水社',
+							year: '2024',
+							author: '中川裕'
+						}
+					],
+					en: [
+						{
+							type: 'book',
+							title: 'Ainu Language Grammar Guide',
+							link: 'https://sites.google.com/view/aynu-itak/home',
+							author: 'Silja Ijas',
+							year: '2023'
+						}
+					]
+				}
+			)}
 		</div>
-		<ul>
-			<li>
-				{$t('Sisam’itak')}
-				<ul lang="ja">
-					<li>
-						金田一京助・知里眞志保（1936）『<a
-							href="https://archive.org/details/ainugohgaisetsu00kind/"
-							target="_blank">アイヌ語法概説</a
-						>』岩波書店
-					</li>
-					<li>
-						佐藤知己（2008）『<a
-							href="http://www.daigakusyorin.co.jp/book/b12162.html"
-							target="_blank">アイヌ語文法の基礎</a
-						>』大学書林
-					</li>
-					<li>
-						中川裕（2024）『<a href="https://www.hakusuisha.co.jp/book/b649849.html" target="_blank"
-							>アイヌ語広文典</a
-						>』白水社
-					</li>
-				</ul>
-			</li>
-			<li>
-				{$t('Inkiriskur’itak')}
-				<ul>
-					<li>
-						Silja Ijas (2023) <a href="https://sites.google.com/view/aynu-itak/home" target="_blank"
-							><i>Ainu Language Grammar Guide</i></a
-						>
-					</li>
-				</ul>
-			</li>
-		</ul>
-	</section>
-	<section id="resource">
+
 		<h2>{$t('Itaksay')}</h2>
 		<div role="doc-subtitle" lang="ja">
 			<span lang="ja">資料</span>
