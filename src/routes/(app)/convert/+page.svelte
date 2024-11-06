@@ -67,6 +67,9 @@
 					break;
 			}
 			converted = punctuation ? convertPunctuations(converted) : converted;
+			if (mode.endsWith('Kana') && converted.includes('ト゚')) {
+				converted = converted.replaceAll('ト゚', tu_as);
+			}
 			lastConverted = converted;
 		} catch (e) {
 			converted = lastConverted;
@@ -74,6 +77,8 @@
 	});
 
 	let punctuation: boolean = $state(true);
+
+	let tu_as: 'トゥ' | 'ト゚' | 'ツ゚' = $state('トゥ');
 </script>
 
 <svelte:head>
@@ -105,13 +110,27 @@
 		<textarea lang={`ain-${mode.slice(5)}`} value={converted} readonly></textarea>
 	</output>
 
+	<fieldset style="display: flex; align-items: center; gap: 0.5em;  flex-direction: column;">
+		<legend>{$t('Inumke')}</legend>
+		<div style="display: flex; align-items: center; gap: 0.5em;">
+			<input type="checkbox" bind:checked={punctuation} id="punctuation" />
+			<label for="punctuation">{$t('Aytaksay’usarayep a=tupte')}</label>
+		</div>
+
+		{#if mode.endsWith('Kana')}
+			<div style="display: flex; align-items: center; gap: 0.5em;">
+				<div>tu/ту →</div>
+				<input type="radio" bind:group={tu_as} id="tu_as" value="トゥ" />
+				<label for="tu_as">トゥ</label>
+				<input type="radio" bind:group={tu_as} id="tu_d" value="ト゚" />
+				<label for="tu_d">ト゚</label>
+				<input type="radio" bind:group={tu_as} id="tsu_d" value="ツ゚" />
+				<label for="tsu_d">ツ゚</label>
+			</div>
+		{/if}
+	</fieldset>
+
 	<h2>{$t('Ipiskikarpe Porokram')}</h2>
-
-	<div style="display: flex; align-items: center; gap: 0.5em;">
-		<input type="checkbox" bind:checked={punctuation} id="punctuation" />
-		<label for="punctuation">{$t('Aytaksay’usarayep a=tupte')}</label>
-	</div>
-
 	<ul>
 		<li>
 			<a href="https://www.npmjs.com/package/ainconv" target="_blank" rel="noopener">
