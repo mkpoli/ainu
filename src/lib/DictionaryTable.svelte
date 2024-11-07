@@ -84,7 +84,7 @@
 	</thead>
 	<tbody>
 		{#each dictionaries as { url, name, languages, dialect, count }}
-			<tr>
+			<tr class="hover:bg-gray-100/50">
 				<td>
 					<a href={url} lang="ja" target="_blank">{@html name.replaceAll(/\n/g, '<br />')}</a>
 				</td>
