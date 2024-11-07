@@ -166,13 +166,19 @@
 			<h3>
 				{$t('Oya Rinko')}
 			</h3>
-			<ul>
-				<li>
+			<ul class="list-disc w-content mx-auto">
+				<li class="w-content">
 					<a
 						href="https://ja.wiktionary.org/wiki/%E5%88%A9%E7%94%A8%E8%80%85:Mkpoli/%E3%82%A2%E3%82%A4%E3%83%8C%E8%AA%9E%E8%AA%9E%E5%BD%99%E9%A0%BB%E5%BA%A6%E8%A1%A8"
 					>
 						利用者:Mkpoli/アイヌ語語彙頻度表 - ウィクショナリー日本語版
 					</a>
+				</li>
+				<li class="w-content">
+					<a
+						href="https://ja.wiktionary.org/wiki/Wiktionary:%E3%82%A2%E3%82%A4%E3%83%8C%E8%AA%9E%E3%81%AE%E5%9F%BA%E6%9C%AC%E8%AA%9E%E5%BD%991000"
+						>Wiktionary:アイヌ語の基本語彙1000</a
+					>
 				</li>
 			</ul>
 		</main>
