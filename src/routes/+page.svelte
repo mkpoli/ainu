@@ -66,16 +66,20 @@
 			<span lang="en">Aim</span>
 			<span lang="ru">Цель</span>
 		</div>
-		<p>
-			{$t('Aynuitak einuypa eukasuy wa tanesasuysir osiknuka.')}
-		</p>
-		<div class="translation">
-			<span lang="ja">アイヌ語での文章制作を支援し、その現代化を促進する</span>
-			<span lang="en">To support the writing in Ainu and to promote the modernization of Ainu</span>
-			<span lang="ru"
-				>Поддержать письмо на айнском языке и способствовать его современному развитию</span
-			>
-		</div>
+		<main>
+			<p>
+				{$t('Aynuitak einuypa eukasuy wa tanesasuysir osiknuka.')}
+			</p>
+			<div class="translation">
+				<span lang="ja">アイヌ語での文章制作を支援し、その現代化を促進する</span>
+				<span lang="en"
+					>To support the writing in Ainu and to promote the modernization of Ainu</span
+				>
+				<span lang="ru"
+					>Поддержать письмо на айнском языке и способствовать его современному развитию</span
+				>
+			</div>
+		</main>
 	</section>
 	<section id="projects">
 		<h2>{$t('Cikarkoranpe')}</h2>
@@ -85,7 +89,7 @@
 			<span lang="ru">Проекты</span>
 		</div>
 
-		<div class="cards">
+		<main class="cards">
 			{#snippet projectCard(
 				title: {
 					ain: string;
@@ -126,7 +130,7 @@
 				'https://incubator.wikimedia.org/wiki/Wp/ain/Main%20Page',
 				wikipediaScreenshot
 			)}
-		</div>
+		</main>
 	</section>
 	<section id="tools">
 		<h2>{$t('Aeywankep')}</h2>
@@ -135,7 +139,7 @@
 			<span lang="en">Tools</span>
 			<span lang="ru">Инструменты</span>
 		</div>
-		<div class="cards">
+		<main class="cards">
 			<div class="card">
 				<h3 class="flex flex-col items-center justify-center gap-2">
 					<IconParkOutlineWritingFluently class="w-8 h-8" />
@@ -147,7 +151,7 @@
 					<span lang="ru">Преобразование айнской письменности</span>
 				</div>
 			</div>
-		</div>
+		</main>
 	</section>
 	<section id="dicts">
 		<h2>{$t('Aynuitak-Eonnekunnep')}</h2>
@@ -156,20 +160,22 @@
 			<span lang="en">Ainu Dictionaries</span>
 			<span lang="ru">Айнские словари</span>
 		</div>
-		<DictionaryTable />
-		<p><i>{$t('Ainuitak-Nucaitak-Eonnekunnep tane isam. a=eramuan yakun i=pakasnu yan!')}</i></p>
-		<h3>
-			{$t('Oya Rinko')}
-		</h3>
-		<ul>
-			<li>
-				<a
-					href="https://ja.wiktionary.org/wiki/%E5%88%A9%E7%94%A8%E8%80%85:Mkpoli/%E3%82%A2%E3%82%A4%E3%83%8C%E8%AA%9E%E8%AA%9E%E5%BD%99%E9%A0%BB%E5%BA%A6%E8%A1%A8"
-				>
-					利用者:Mkpoli/アイヌ語語彙頻度表 - ウィクショナリー日本語版
-				</a>
-			</li>
-		</ul>
+		<main>
+			<DictionaryTable />
+			<p><i>{$t('Ainuitak-Nucaitak-Eonnekunnep tane isam. a=eramuan yakun i=pakasnu yan!')}</i></p>
+			<h3>
+				{$t('Oya Rinko')}
+			</h3>
+			<ul>
+				<li>
+					<a
+						href="https://ja.wiktionary.org/wiki/%E5%88%A9%E7%94%A8%E8%80%85:Mkpoli/%E3%82%A2%E3%82%A4%E3%83%8C%E8%AA%9E%E8%AA%9E%E5%BD%99%E9%A0%BB%E5%BA%A6%E8%A1%A8"
+					>
+						利用者:Mkpoli/アイヌ語語彙頻度表 - ウィクショナリー日本語版
+					</a>
+				</li>
+			</ul>
+		</main>
 	</section>
 
 	<section id="books">
@@ -179,7 +185,7 @@
 			<span lang="en">Books</span>
 			<span lang="ru">Книги</span>
 		</div>
-		<div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+		<main class="grid grid-cols-1 gap-4 lg:grid-cols-2">
 			{#snippet card(
 				Icon: Component,
 				title: {
@@ -372,7 +378,7 @@
 					]
 				}
 			)}
-		</div>
+		</main>
 	</section>
 
 	<section id="resource">
@@ -382,34 +388,36 @@
 			<span lang="en">Resources</span>
 			<span lang="ru">Ресурсы</span>
 		</div>
-		<ul>
-			<li>
-				公益財団法人 アイヌ民族文化財団「<a
-					href="https://www.ff-ainu.or.jp/web/potal_site/"
-					lang="ja"
-					target="_blank">アイヌ語ポータルサイト</a
-				>」
-			</li>
-			<li>
-				佐藤 知己，モコットゥナシ 北原，シリヤ イヤス（2022）「<a
-					href="https://doi.org/10.14943/Jais.2.075"
-					lang="ja"
-					target="_blank"
-					>「北海道大学キャンパスガイドマップ」のアイヌ語併記作業について：翻訳と脱植民地化に関する議論をめぐって</a
-				>」『アイヌ・先住民研究』北海道大学アイヌ・先住民研究センター
-			</li>
-			<li>
-				<CitationEN
-					author="Ijas, Silja"
-					year="2023"
-					title="Language revitalization through lexical modernization and neologism-coining: The current state and future tasks of modernizing Ainu lexicon"
-					link="https://doi.org/10.14943/Jais.3.117"
-					journal="Aynu Teetawanoankur Kanpinuye"
-					volume="3"
-					pages="117-160"
-				/>
-			</li>
-		</ul>
+		<main>
+			<ul>
+				<li>
+					公益財団法人 アイヌ民族文化財団「<a
+						href="https://www.ff-ainu.or.jp/web/potal_site/"
+						lang="ja"
+						target="_blank">アイヌ語ポータルサイト</a
+					>」
+				</li>
+				<li>
+					佐藤 知己，モコットゥナシ 北原，シリヤ イヤス（2022）「<a
+						href="https://doi.org/10.14943/Jais.2.075"
+						lang="ja"
+						target="_blank"
+						>「北海道大学キャンパスガイドマップ」のアイヌ語併記作業について：翻訳と脱植民地化に関する議論をめぐって</a
+					>」『アイヌ・先住民研究』北海道大学アイヌ・先住民研究センター
+				</li>
+				<li>
+					<CitationEN
+						author="Ijas, Silja"
+						year="2023"
+						title="Language revitalization through lexical modernization and neologism-coining: The current state and future tasks of modernizing Ainu lexicon"
+						link="https://doi.org/10.14943/Jais.3.117"
+						journal="Aynu Teetawanoankur Kanpinuye"
+						volume="3"
+						pages="117-160"
+					/>
+				</li>
+			</ul>
+		</main>
 	</section>
 </main>
 
@@ -444,6 +452,10 @@
 
 	.translation {
 		@apply flex-col;
+	}
+
+	section main {
+		@apply px-4 py-6;
 	}
 
 	h1 + div[role='doc-subtitle'] {
