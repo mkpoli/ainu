@@ -6,6 +6,10 @@ a {
 	@apply text-blue-600 hover:underline;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	@apply font-Messiri;
 	dominant-baseline: ideographic;
