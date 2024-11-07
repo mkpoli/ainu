@@ -71,7 +71,7 @@
 				{$t('Aynuitak einuypa eukasuy wa tanesasuysir osiknuka.')}
 			</p>
 			<div class="translation">
-				<span lang="ja">アイヌ語での文章制作を支援し、その現代化を促進する</span>
+				<span lang="ja">アイヌ語での文章作成を支援し、その現代化を促進する</span>
 				<span lang="en"
 					>To support the writing in Ainu and to promote the modernization of Ainu</span
 				>
