@@ -1,4 +1,8 @@
 <script lang="ts">
+	import '@fontsource/poiret-one';
+	import '@fontsource-variable/el-messiri';
+	import '@fontsource/sawarabi-mincho';
+	import '@fontsource/hina-mincho';
 	import '../app.css';
 	import Footer from '$lib/Footer.svelte';
 	import '../main.css';

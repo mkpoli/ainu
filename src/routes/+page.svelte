@@ -30,7 +30,7 @@
 			<div>
 				<h1>{$t('Aynuitak-nuye Ukosamaani Sait')}</h1>
 				<div role="doc-subtitle">
-					<span lang="ja"> アイヌ語執筆支援サイト </span>
+					<span lang="ja" class="font-Hina"> アイヌ語執筆支援サイト </span>
 					<span lang="en"> Ainu Language Writing Support Site </span>
 					<span lang="ru"> Сайт поддержки письма на айнском языке </span>
 				</div>
@@ -236,7 +236,7 @@
 								ru: 'Nucaitak'
 							} as const}
 							<h4 class="font-bold">{LANG_TITLE[lang as keyof typeof LANG_TITLE]}</h4>
-							<li>
+							<li {lang}>
 								<ul>
 									{#each items as book}
 										<li>
@@ -396,22 +396,21 @@
 		</div>
 		<main>
 			<ul>
-				<li>
+				<li lang="ja">
 					公益財団法人 アイヌ民族文化財団「<a
 						href="https://www.ff-ainu.or.jp/web/potal_site/"
 						lang="ja"
 						target="_blank">アイヌ語ポータルサイト</a
 					>」
 				</li>
-				<li>
+				<li lang="ja">
 					佐藤 知己，モコットゥナシ 北原，シリヤ イヤス（2022）「<a
 						href="https://doi.org/10.14943/Jais.2.075"
-						lang="ja"
 						target="_blank"
 						>「北海道大学キャンパスガイドマップ」のアイヌ語併記作業について：翻訳と脱植民地化に関する議論をめぐって</a
 					>」『アイヌ・先住民研究』北海道大学アイヌ・先住民研究センター
 				</li>
-				<li>
+				<li lang="en">
 					<CitationEN
 						author="Ijas, Silja"
 						year="2023"
@@ -622,10 +621,5 @@
 
 	.sns a:active {
 		color: #c9c9c9;
-	}
-
-	a.card-link {
-		text-decoration: none;
-		color: inherit;
 	}
 </style>

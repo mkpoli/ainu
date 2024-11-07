@@ -8,7 +8,13 @@ export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 
 	theme: {
-		extend: {}
+		extend: {},
+		fontFamily: {
+			Poiret: ['Poiret One', 'system-ui'],
+			Messiri: ['El Messiri Variable', 'serif'],
+			Hina: ['Hina Mincho', 'serif'],
+			Sawarabi: ['Sawarabi Mincho', 'serif']
+		}
 	},
 
 	plugins: [typography, forms, containerQueries, aspectRatio]

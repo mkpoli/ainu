@@ -5,3 +5,19 @@
 a {
 	@apply text-blue-600 hover:underline;
 }
+
+body {
+	@apply font-Messiri;
+	dominant-baseline: ideographic;
+}
+
+*:where([lang='ja']) {
+	@apply font-Sawarabi;
+	/* font-size: 0.95em; */
+	/* line-height: -1.5; */
+	transform: translateY(-0.1em);
+}
+
+*:where([lang='en'], [lang='ain-Latn'], [lang='ru'], [lang='ain-Cyrl']) {
+	@apply font-Messiri;
+}

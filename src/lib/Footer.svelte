@@ -3,11 +3,13 @@
 	import MdiGithub from '~icons/mdi/github';
 </script>
 
-<footer>
+<footer class="font-Poiret">
 	<a href="https://github.com/mkpoli/ainu">
 		<MdiGithub />
 	</a>
-	<a href="https://mkpo.li/"><i>mkpoli</i></a>{$t('2023 pa wano kar')}
+	<a href="https://mkpo.li/" class="font-bold italic hover:underline">mkpoli</a>{$t(
+		'2023 pa wano kar'
+	)}
 </footer>
 
 <style>

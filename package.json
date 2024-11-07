@@ -38,6 +38,10 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@fontsource-variable/el-messiri": "^5.1.0",
+		"@fontsource/hina-mincho": "^5.1.0",
+		"@fontsource/poiret-one": "^5.1.0",
+		"@fontsource/sawarabi-mincho": "^5.1.0",
 		"@rollup/plugin-dsv": "^3.0.5",
 		"ainconv": "^0.4.0",
 		"unplugin-icons": "^0.20.0"
