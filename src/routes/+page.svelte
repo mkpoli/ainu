@@ -413,7 +413,7 @@
 	</section>
 </main>
 
-<style>
+<style lang="postcss">
 	@media screen and (max-width: 768px) {
 		.title-content :global(.ayus) {
 			display: none;
@@ -437,25 +437,31 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		flex-direction: column;
 		margin: 0;
 		font-weight: normal;
 		text-align: center;
 	}
 
+	.translation {
+		@apply flex-col;
+	}
+
 	h1 + div[role='doc-subtitle'] {
 		font-size: 1.5em;
 		line-height: 2em;
+		flex-direction: column;
 	}
 
 	h2 + div[role='doc-subtitle'] {
 		font-size: 1.35em;
 		line-height: 1.5em;
+		@apply flex flex-row items-center justify-center gap-4;
 	}
 
-	h3 + div[role='doc-subtitle'] {
+	h3 + div[role='doc-subtitle']:not(.card-description) {
 		font-size: 1.125em;
 		line-height: 1.5em;
+		@apply flex flex-row items-center justify-center gap-4;
 	}
 
 	p {
