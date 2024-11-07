@@ -77,7 +77,7 @@
 			class="more"><MaterialSymbolsFitbitArrowDownwardRounded /></button
 		>
 	</section>
-	<section>
+	<section id="today">
 		<h2 class="flex flex-row items-center justify-center gap-2">
 			<CarbonPhraseSentiment class="w-12 h-12" />
 			{$t('Tanto Itak')}
