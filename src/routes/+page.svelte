@@ -211,7 +211,7 @@
 						<Icon class="w-8 h-8" />
 						{title.ain}
 					</h3>
-					<div role="doc-subtitle">
+					<div class="flex flex-row items-center justify-center gap-4">
 						<span lang="ja">{title.ja}</span>
 						<span lang="en">{title.en}</span>
 						<span lang="ru">{title.ru}</span>
