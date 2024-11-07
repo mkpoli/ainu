@@ -82,31 +82,28 @@
 			<span lang="ru">Проекты</span>
 		</div>
 
-		{#snippet card(
-			title: {
-				ain: string;
-				ja: string;
-				en: string;
-				ru: string;
-			},
-			link: string,
-			image: string
-		)}
-			<a href={link} target="_blank" class="card-link">
-				<div class="card">
-					<h3 class="hover:underline">{$t(title.ain)}</h3>
+		<div class="cards">
+			{#snippet projectCard(
+				title: {
+					ain: string;
+					ja: string;
+					en: string;
+					ru: string;
+				},
+				link: string,
+				image: string
+			)}
+				<a href={link} target="_blank" class="card hover:no-underline text-inherit">
+					<h3 class="hover:underline text-black underline-black">{$t(title.ain)}</h3>
 					<img class="card-image" src={image} alt={title.ain} />
 					<div class="card-description" role="doc-subtitle">
 						<span lang="ja">{$t(title.ja)}</span>
 						<span lang="en">{$t(title.en)}</span>
 						<span lang="ru">{$t(title.ru)}</span>
 					</div>
-				</div>
-			</a>
-		{/snippet}
-
-		<div class="cards">
-			{@render card(
+				</a>
+			{/snippet}
+			{@render projectCard(
 				{
 					ain: 'Aynuwiki a=kar',
 					ja: 'アイヌ語によるオンライン百科事典',
@@ -116,7 +113,7 @@
 				'https://wiki.aynu.org/',
 				aynuwikiScreenshot
 			)}
-			{@render card(
+			{@render projectCard(
 				{
 					ain: 'Wikipenciya a=kar',
 					ja: 'ウィキペディア誕生プロジェクト',
