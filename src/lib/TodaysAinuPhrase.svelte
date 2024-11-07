@@ -6,10 +6,12 @@
 		currentScript = value;
 	});
 
+	const randomizedPhrases = PHRASES.sort(() => Math.random() - 0.5);
+
 	import { convert } from 'ainconv';
 
 	let index = $state(Math.floor(Math.random() * PHRASES.length));
-	let phrase = $derived(PHRASES[index]);
+	let phrase = $derived(randomizedPhrases[index]);
 
 	let showMeaning = $state(false);
 
