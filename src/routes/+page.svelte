@@ -21,6 +21,8 @@
 	import IcTwotoneLaunch from '~icons/ic/twotone-launch';
 	import MaterialSymbolsTranslateRounded from '~icons/material-symbols/translate-rounded';
 	import type { Component } from 'svelte';
+	import TodaysAinuPhrase from '$lib/TodaysAinuPhrase.svelte';
+	import CarbonPhraseSentiment from '~icons/carbon/phrase-sentiment';
 </script>
 
 <svelte:head>
@@ -74,6 +76,20 @@
 			}}
 			class="more"><MaterialSymbolsFitbitArrowDownwardRounded /></button
 		>
+	</section>
+	<section>
+		<h2 class="flex flex-row items-center justify-center gap-2">
+			<CarbonPhraseSentiment class="w-12 h-12" />
+			{$t('Tanto Itak')}
+		</h2>
+		<div role="doc-subtitle" lang="ja">
+			<span lang="ja">今日のフレーズ</span>
+			<span lang="en">Phrase of the Day</span>
+			<span lang="ru">Фраза дня</span>
+		</div>
+		<main>
+			<TodaysAinuPhrase />
+		</main>
 	</section>
 	<section id="aim">
 		<h2>
