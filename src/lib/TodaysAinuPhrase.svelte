@@ -109,7 +109,7 @@
 		onclick={() => {
 			showMeaning = !showMeaning;
 		}}
-		title={$t(`${showMeaning ? 'Somo i' : 'I'}takipe a=nukar`)}
+		title={$t(`Itakipe ${showMeaning ? 'somo ' : ''}a=nukar`)}
 		class="px-6 py-2 rounded-md my-6 relative group/meaning"
 	>
 		<span class:blur={!showMeaning} class="flex flex-row items-center justify-center gap-2">
