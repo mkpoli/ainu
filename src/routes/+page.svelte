@@ -278,7 +278,7 @@
 			<span lang="en">Books</span>
 			<span lang="ru">Книги</span>
 		</div>
-		<main class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+		<main class="grid grid-cols-1 gap-4 xl:grid-cols-2">
 			{#snippet card(
 				Icon: Component,
 				title: {
