@@ -5,7 +5,10 @@
 		url: string;
 		name: string;
 		dialect: string;
-		languages: string[];
+		languages: {
+			language: string;
+			label: string;
+		}[];
 		count: number;
 	};
 
@@ -14,42 +17,60 @@
 			url: 'https://ainugo.nam.go.jp/dic',
 			name: '国立アイヌ民族博物館アイヌ語アーカイブ',
 			dialect: 'Sar',
-			languages: ['Aynuitak-Sisamitak', 'アイヌ語・日本語'],
+			languages: [
+				{ language: 'ain', label: 'Aynuitak-Sisamitak' },
+				{ language: 'ja', label: 'アイヌ語-日本語' }
+			],
 			count: 27000
 		},
 		{
 			url: 'http://hdl.handle.net/2115/87707',
 			name: '和愛辞典 : 草稿版 （太田満 編）',
 			dialect: 'Iskar',
-			languages: ['Sisamitak-Aynuitak', '日本語・アイヌ語'],
+			languages: [
+				{ language: 'ain', label: 'Sisamitak-Aynuitak' },
+				{ language: 'ja', label: '日本語-アイヌ語' }
+			],
 			count: 12500
 		},
 		{
 			url: 'http://itelmen.placo.net/Ainu-archives/index.html',
 			name: 'アイヌ語鵡川方言　日本語―アイヌ語辞典',
 			dialect: 'Muka',
-			languages: ['Sisamitak-Aynuitak', '日本語・アイヌ語'],
+			languages: [
+				{ language: 'ain', label: 'Sisamitak-Aynuitak' },
+				{ language: 'ja', label: '日本語-アイヌ語' }
+			],
 			count: 6300
 		},
 		{
 			url: 'https://ainu.ninjal.ac.jp/topic/',
 			name: 'トピック別 アイヌ語会話辞典',
 			dialect: 'Sar',
-			languages: ['Sisamitak-Aynuitak', '日本語・アイヌ語'],
+			languages: [
+				{ language: 'ain', label: 'Sisamitak-Aynuitak' },
+				{ language: 'ja', label: '日本語-アイヌ語' }
+			],
 			count: 3500
 		},
 		{
 			url: 'https://ainu.ninjal.ac.jp/topic/en/',
 			name: 'Topical Dictionary of Conversational Ainu',
 			dialect: 'Sar',
-			languages: ['Inkiriskuritak-Aynuitak', 'English-Ainu'],
+			languages: [
+				{ language: 'ain', label: 'Inkiriskuritak-Sisamitak' },
+				{ language: 'en', label: 'English-Ainu' }
+			],
 			count: 3500
 		},
 		{
 			url: 'https://ja.wiktionary.org/wiki/%E3%82%AB%E3%83%86%E3%82%B4%E3%83%AA:%E3%82%A2%E3%82%A4%E3%83%8C%E8%AA%9E',
 			name: '日本語版Wiktionary',
 			dialect: '-',
-			languages: ['Aynuitak-Sisamitak', 'アイヌ語・日本語'],
+			languages: [
+				{ language: 'ain', label: 'Aynuitak-Sisamitak' },
+				{ language: 'ja', label: 'アイヌ語-日本語' }
+			],
 			count: 2000
 		},
 		{
@@ -57,9 +78,9 @@
 			name: 'Tane an Aynuitak-kotupte Itak-uwoeroskip\n現代アイヌ語翻訳用語集\nModern Ainu Translation Glossary',
 			dialect: '-',
 			languages: [
-				'Aynuitak-Sisamitak-Inkiriskuritak',
-				'アイヌ語・日本語・英語',
-				'Ainu-Japanese-English'
+				{ language: 'ain', label: 'Aynuitak-Sisamitak-Inkiriskuritak' },
+				{ language: 'ja', label: 'アイヌ語-日本語' },
+				{ language: 'en', label: 'Ainu-Japanese-English' }
 			],
 			count: 1000
 		},
@@ -67,7 +88,10 @@
 			url: 'https://en.wiktionary.org/wiki/Category:Ainu_language',
 			name: 'English Wiktionary',
 			dialect: '-',
-			languages: ['Aynuitak-Inkiriskuritak', 'Ainu-English'],
+			languages: [
+				{ language: 'ain', label: 'Aynuitak-Inkiriskuritak' },
+				{ language: 'en', label: 'Ainu-English' }
+			],
 			count: 600
 		}
 	];
@@ -89,8 +113,9 @@
 					<a href={url} lang="ja" target="_blank">{@html name.replaceAll(/\n/g, '<br />')}</a>
 				</td>
 				<td>
-					{#each languages as language, i}
-						<span>{i === 0 ? language.split('-').map($t).join('-') : language}</span><br />
+					{#each languages as { language, label }, i}
+						<span lang={language}>{i === 0 ? label.split('-').map($t).join('-') : label}</span><br
+						/>
 					{/each}
 				</td>
 				<td> {dialect === '-' ? '-' : $t(dialect)} </td>
