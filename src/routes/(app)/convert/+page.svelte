@@ -109,24 +109,28 @@
 		<textarea lang={`ain-${mode.slice(5)}`} value={converted} readonly></textarea>
 	</output>
 
-	<fieldset style="display: flex; align-items: center; gap: 0.5em;  flex-direction: column;">
-		<legend>{$t('Inumke')}</legend>
-		<div style="display: flex; align-items: center; gap: 0.5em;">
-			<input type="checkbox" bind:checked={options.punctuation} id="punctuation" />
-			<label for="punctuation">{$t('Aytaksay’usarayep a=tupte')}</label>
-		</div>
-
-		{#if mode.endsWith('Kana')}
-			<div style="display: flex; align-items: center;">
-				<div>tu/ту →</div>
-				<input type="radio" bind:group={options.tu_as} id="tu_as" value="トゥ" />
-				<label for="tu_as" style="padding: 0 0.25em;">トゥ</label>
-				<input type="radio" bind:group={options.tu_as} id="tu_d" value="ト゚" />
-				<label for="tu_d" style="padding: 0 0.25em;">ト゚</label>
-				<input type="radio" bind:group={options.tu_as} id="tsu_d" value="ツ゚" />
-				<label for="tsu_d" style="padding: 0 0.25em;">ツ゚</label>
+	<fieldset
+		class="flex flex-col items-center gap-2 border border-black px-6 py-4 rounded-lg focus-within:border-blue-700 focus-within:text-blue-700 transition-all"
+	>
+		<legend class="text-lg font-bold px-1">{$t('Inumke')}</legend>
+		<div class="text-black flex flex-col gap-4">
+			<div class="flex items-center gap-2">
+				<input type="checkbox" bind:checked={options.punctuation} id="punctuation" />
+				<label for="punctuation">{$t('Aytaksay’usarayep a=tupte')}</label>
 			</div>
-		{/if}
+
+			{#if mode.endsWith('Kana')}
+				<div style="display: flex; align-items: center;">
+					<div>tu/ту →</div>
+					<input type="radio" bind:group={options.tu_as} id="tu_as" value="トゥ" />
+					<label for="tu_as" style="padding: 0 0.25em;">トゥ</label>
+					<input type="radio" bind:group={options.tu_as} id="tu_d" value="ト゚" />
+					<label for="tu_d" style="padding: 0 0.25em;">ト゚</label>
+					<input type="radio" bind:group={options.tu_as} id="tsu_d" value="ツ゚" />
+					<label for="tsu_d" style="padding: 0 0.25em;">ツ゚</label>
+				</div>
+			{/if}
+		</div>
 	</fieldset>
 
 	<h2>{$t('Ipiskikarpe Porokram')}</h2>
