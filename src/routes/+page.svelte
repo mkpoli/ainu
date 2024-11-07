@@ -18,6 +18,8 @@
 	import aynuwikiScreenshot from '$assets/wiki.aynu.org.png';
 	import wikipediaScreenshot from '$assets/wikipedia.incubator.png';
 	import DictionaryTable from '$lib/DictionaryTable.svelte';
+	import IcTwotoneLaunch from '~icons/ic/twotone-launch';
+	import MaterialSymbolsTranslateRounded from '~icons/material-symbols/translate-rounded';
 	import type { Component } from 'svelte';
 </script>
 
@@ -155,17 +157,53 @@
 			<span lang="ru">Инструменты</span>
 		</div>
 		<main class="cards">
-			<div class="card">
-				<h3 class="flex flex-col items-center justify-center gap-2">
-					<IconParkOutlineWritingFluently class="w-8 h-8" />
-					<a href="/convert">{$t('Ainuitak-Itokpa-Inuye Eutasare')}</a>
-				</h3>
-				<div class="card-description" role="doc-subtitle">
-					<span lang="ja">アイヌ語表記変換</span>
-					<span lang="en">Ainu Script Conversion</span>
-					<span lang="ru">Преобразование айнской письменности</span>
+			{#snippet toolCard(
+				title: {
+					ain: string;
+					ja: string;
+					en: string;
+					ru: string;
+				},
+				link: string,
+				Icon: Component,
+				external: boolean
+			)}
+				<div class="card">
+					<h3 class="flex flex-col items-center justify-center gap-2">
+						<Icon class="w-8 h-8" />
+						<a href={link} target={external ? '_blank' : '_self'}
+							>{$t(title.ain)}{#if external}<IcTwotoneLaunch class="w-4 h-4 inline ml-1" />{/if}</a
+						>
+					</h3>
+					<div class="card-description" role="doc-subtitle">
+						<span lang="ja">{$t(title.ja)}</span>
+						<span lang="en">{$t(title.en)}</span>
+						<span lang="ru">{$t(title.ru)}</span>
+					</div>
 				</div>
-			</div>
+			{/snippet}
+			{@render toolCard(
+				{
+					ain: 'Ainuitak-Itokpa-Inuye Eutasare',
+					ja: 'アイヌ語表記変換',
+					en: 'Ainu Script Conversion',
+					ru: 'Преобразование айнской письменности'
+				},
+				'/convert',
+				IconParkOutlineWritingFluently,
+				false
+			)}
+			{@render toolCard(
+				{
+					ain: 'Ainuitak-Sisam’itak Tunci',
+					ja: 'アイヌ語⇆日本語間自動翻訳',
+					en: 'Ainu-Japanese Translator',
+					ru: 'Айнский-Японский переводчик'
+				},
+				'https://tunci.aynu.io/',
+				MaterialSymbolsTranslateRounded,
+				true
+			)}
 		</main>
 	</section>
 	<section id="dicts">
