@@ -18,7 +18,7 @@
 			name: '国立アイヌ民族博物館アイヌ語アーカイブ',
 			dialect: 'Sar',
 			languages: [
-				{ language: 'ain', label: 'Aynuitak-Sisamitak' },
+				{ language: 'ain', label: 'Aynuitak-Sisam’itak' },
 				{ language: 'ja', label: 'アイヌ語-日本語' }
 			],
 			count: 27000
@@ -28,7 +28,7 @@
 			name: '和愛辞典 : 草稿版 （太田満 編）',
 			dialect: 'Iskar',
 			languages: [
-				{ language: 'ain', label: 'Sisamitak-Aynuitak' },
+				{ language: 'ain', label: 'Sisam’itak-Aynuitak' },
 				{ language: 'ja', label: '日本語-アイヌ語' }
 			],
 			count: 12500
@@ -38,7 +38,7 @@
 			name: 'アイヌ語鵡川方言　日本語―アイヌ語辞典',
 			dialect: 'Muka',
 			languages: [
-				{ language: 'ain', label: 'Sisamitak-Aynuitak' },
+				{ language: 'ain', label: 'Sisam’itak-Aynuitak' },
 				{ language: 'ja', label: '日本語-アイヌ語' }
 			],
 			count: 6300
@@ -48,7 +48,7 @@
 			name: 'トピック別 アイヌ語会話辞典',
 			dialect: 'Sar',
 			languages: [
-				{ language: 'ain', label: 'Sisamitak-Aynuitak' },
+				{ language: 'ain', label: 'Sisam’itak-Aynuitak' },
 				{ language: 'ja', label: '日本語-アイヌ語' }
 			],
 			count: 3500
@@ -58,7 +58,7 @@
 			name: 'Topical Dictionary of Conversational Ainu',
 			dialect: 'Sar',
 			languages: [
-				{ language: 'ain', label: 'Inkiriskuritak-Sisamitak' },
+				{ language: 'ain', label: 'Inkiriskur’itak-Sisam’itak' },
 				{ language: 'en', label: 'English-Ainu' }
 			],
 			count: 3500
@@ -68,7 +68,7 @@
 			name: '日本語版Wiktionary',
 			dialect: '-',
 			languages: [
-				{ language: 'ain', label: 'Aynuitak-Sisamitak' },
+				{ language: 'ain', label: 'Aynuitak-Sisam’itak' },
 				{ language: 'ja', label: 'アイヌ語-日本語' }
 			],
 			count: 2000
@@ -78,7 +78,7 @@
 			name: 'Tane an Aynuitak-kotupte Itak-uwoeroskip\n現代アイヌ語翻訳用語集\nModern Ainu Translation Glossary',
 			dialect: '-',
 			languages: [
-				{ language: 'ain', label: 'Aynuitak-Sisamitak-Inkiriskuritak' },
+				{ language: 'ain', label: 'Aynuitak-Sisam’itak-Inkiriskur’itak' },
 				{ language: 'ja', label: 'アイヌ語-日本語' },
 				{ language: 'en', label: 'Ainu-Japanese-English' }
 			],
@@ -89,7 +89,7 @@
 			name: 'English Wiktionary',
 			dialect: '-',
 			languages: [
-				{ language: 'ain', label: 'Aynuitak-Inkiriskuritak' },
+				{ language: 'ain', label: 'Aynuitak-Inkiriskur’itak' },
 				{ language: 'en', label: 'Ainu-English' }
 			],
 			count: 600
