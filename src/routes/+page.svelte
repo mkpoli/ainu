@@ -57,6 +57,14 @@
 			</div>
 		</div>
 
+		<nav class="flex flex-row items-center justify-center gap-4 py-4">
+			<a class="text-white" href="#aim">{$t('Cikosirepap')}</a>
+			<a class="text-white" href="#projects">{$t('Cikarkoranpe')}</a>
+			<a class="text-white" href="#tools">{$t('Aeywankep')}</a>
+			<a class="text-white" href="#dicts">{$t('Aynuitak-Eonnekunnep')}</a>
+			<a class="text-white" href="#books">{$t('Kampisos')}</a>
+			<a class="text-white" href="#resource">{$t('Itaksay')}</a>
+		</nav>
 		<button
 			onclick={() => {
 				const section = document.querySelector('section:nth-of-type(2)');
