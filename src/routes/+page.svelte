@@ -82,38 +82,51 @@
 			<span lang="ru">Проекты</span>
 		</div>
 
-		<class class="cards">
-			<a href="https://wiki.aynu.org/" target="_blank" class="card-link">
+		{#snippet card(
+			title: {
+				ain: string;
+				ja: string;
+				en: string;
+				ru: string;
+			},
+			link: string,
+			image: string
+		)}
+			<a href={link} target="_blank" class="card-link">
 				<div class="card">
-					<h3>
-						{$t('Aynuwiki a=kar')}
-					</h3>
-					<img class="card-image" src={aynuwikiScreenshot} alt="Aynuwiki" />
+					<h3 class="hover:underline">{$t(title.ain)}</h3>
+					<img class="card-image" src={image} alt={title.ain} />
 					<div class="card-description" role="doc-subtitle">
-						<span lang="ja">アイヌ語によるオンライン百科事典</span>
-						<span lang="en">Online Encyclopedia in Ainu</span>
-						<span lang="ru">Онлайн-энциклопедия на айнском языке</span>
+						<span lang="ja">{$t(title.ja)}</span>
+						<span lang="en">{$t(title.en)}</span>
+						<span lang="ru">{$t(title.ru)}</span>
 					</div>
 				</div>
 			</a>
-			<a
-				href="https://incubator.wikimedia.org/wiki/Wp/ain/Main%20Page"
-				target="_blank"
-				class="card-link"
-			>
-				<div class="card">
-					<h3>
-						{$t('Wikipenciya a=kar')}
-					</h3>
-					<img class="card-image" src={wikipediaScreenshot} alt="Wikipedia Incubator" />
-					<div class="card-description" role="doc-subtitle">
-						<span lang="ja">ウィキペディア誕生プロジェクト</span>
-						<span lang="en">Wikipedia Incubator Project</span>
-						<span lang="ru">Проект Инкубатора Википедии</span>
-					</div>
-				</div>
-			</a>
-		</class>
+		{/snippet}
+
+		<div class="cards">
+			{@render card(
+				{
+					ain: 'Aynuwiki a=kar',
+					ja: 'アイヌ語によるオンライン百科事典',
+					en: 'Online Encyclopedia in Ainu',
+					ru: 'Онлайн-энциклопедия на айнском языке'
+				},
+				'https://wiki.aynu.org/',
+				aynuwikiScreenshot
+			)}
+			{@render card(
+				{
+					ain: 'Wikipenciya a=kar',
+					ja: 'ウィキペディア誕生プロジェクト',
+					en: 'Wikipedia Incubator Project',
+					ru: 'Проект Инкубатора Википедии'
+				},
+				'https://incubator.wikimedia.org/wiki/Wp/ain/Main%20Page',
+				wikipediaScreenshot
+			)}
+		</div>
 	</section>
 	<section id="tools">
 		<h2>{$t('Aeywankep')}</h2>
