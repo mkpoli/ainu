@@ -76,5 +76,119 @@
 		"ja": "危ない！",
 		"en": "Danger!",
 		"ru": "Опасно!"
+	},
+	{
+		"ain": "Issorore!",
+		"ja": "こんにちは！",
+		"en": "Hello!",
+		"ru": "Привет!"
+	},
+	{
+		"ain": "Isiorore!",
+		"ja": "こんにちは！",
+		"en": "Hello!",
+		"ru": "Привет!"
+	},
+	{
+		"ain": "Inankarapte!",
+		"ja": "こんにちは！",
+		"en": "Hello!",
+		"ru": "Привет!"
+	},
+	{
+		"ain": "Ikatay!",
+		"ja": "お久しぶり！",
+		"en": "Long time no see!",
+		"ru": "Долго не виделись!"
+	},
+	{
+		"ain": "Iyairaykere!",
+		"ja": "ありがとうございます！",
+		"en": "Thank you very much!",
+		"ru": "Спасибо большое!"
+	},
+	{
+		"ain": "Hinna!",
+		"ja": "ありがとう！",
+		"en": "Thank you!",
+		"ru": "Спасибо!"
+	},
+	{
+		"ain": "Hap!",
+		"ja": "ありがとう！",
+		"en": "Thank you!",
+		"ru": "Спасибо!"
+	},
+	{
+		"ain": "Hapapa!",
+		"ja": "よしよし！",
+		"en": "Good!",
+		"ru": "Хорошо!"
+	},
+	{
+		"ain": "Ho!",
+		"ja": "はい！",
+		"en": "Yes!",
+		"ru": "Да!"
+	},
+	{
+		"ain": "Uwa.",
+		"ja": "わかんない。",
+		"en": "Dunno.",
+		"ru": "Не знаю."
+	},
+	{
+		"ain": "Paknoka!",
+		"ja": "おしまい！",
+		"en": "That's all!",
+		"ru": "Вот и все!"
+	},
+	{
+		"ain": "Koncikun!",
+		"ja": "もちろん！",
+		"en": "Of course!",
+		"ru": "Конечно!"
+	},
+	{
+		"ain": "O!",
+		"ja": "ほら！",
+		"en": "Here you go!",
+		"ru": "Вот он!"
+	},
+	{
+		"ain": "Ke!",
+		"ja": "ほら！",
+		"en": "Here you go!",
+		"ru": "Вот он!"
+	},
+	{
+		"ain": "Coco！",
+		"ja": "おいで！",
+		"en": "Come here!",
+		"ru": "Ко мне!"
+	},
+	{
+		"ain": "Okko!",
+		"ja": "ちょっと！",
+		"en": "Hey!",
+		"ru": "Эй!"
+	},
+	{
+		"ain": "Hetak!",
+		"ja": "さあ！",
+		"en": "Come on!",
+		"ru": "Давай!"
+	},
+	{
+		"ain": "Hokure!",
+		"ja": "さあ早く!",
+		"en": "Hurry up!",
+		"ru": "Быстрее!"
+	},
+	{
+		"ain": "Oka!",
+		"ja": "おやまあ！",
+		"en": "Goodness!",
+		"ru": "Ну и ну!"
 	}
 ]
