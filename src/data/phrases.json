@@ -190,5 +190,131 @@
 		"ja": "おやまあ！",
 		"en": "Goodness!",
 		"ru": "Ну и ну!"
+	},
+	{
+		"ain": "Sisam ku=ne.",
+		"ja": "私は和人です。",
+		"en": "I'm Japanese",
+		"ru": "Я японец"
+	},
+	{
+		"ain": "Aynuitak ku=ye ka eaykap",
+		"ja": "私はアイヌ語が話せません。",
+		"en": "I can't speak Ainu.",
+		"ru": "Я не могу говорить на айну"
+	},
+	{
+		"ain": "Ku=erampewtek.",
+		"ja": "わかりません。",
+		"en": "I don't understand.",
+		"ru": "Я не понимаю."
+	},
+	{
+		"ain": "Ku=eramuan.",
+		"ja": "わかりました。",
+		"en": "I understand.",
+		"ru": "Я понимаю."
+	},
+	{
+		"ain": "K=eraman.",
+		"ja": "わかりました。",
+		"en": "I understand.",
+		"ru": "Я понимаю."
+	},
+	{
+		"ain": "Keraan",
+		"ja": "美味しいです。",
+		"en": "It's delicious.",
+		"ru": "Это вкусно."
+	},
+	{
+		"ain": "Asinru hunak ta an?",
+		"ja": "トイレはどこですか？",
+		"en": "Where is the toilet?",
+		"ru": "Где туалет?"
+	},
+	{
+		"ain": "En=siknure!",
+		"ja": "私を助けて！",
+		"en": "Help me!",
+		"ru": "Помогите мне!"
+	},
+	{
+		"ain": "Nam wakka en=kore!",
+		"ja": "冷たい水をください",
+		"en": "Please give me cold water.",
+		"ru": "Пожалуйста, дайте мне холодную воду."
+	},
+	{
+		"ain": "Peko tópe ku=ku rusuy.",
+		"ja": "牛乳を飲みたいです。",
+		"en": "I want to drink milk.",
+		"ru": "Я хочу пить молоко."
+	},
+	{
+		"ain": "Kam k=e rusuy.",
+		"ja": "肉が食べたいです。",
+		"en": "I want to eat meat.",
+		"ru": "Я хочу есть мясо."
+	},
+	{
+		"ain": "Sonno keraan!",
+		"ja": "本当に美味しいです！",
+		"en": "It's really delicious!",
+		"ru": "Это действительно вкусно!"
+	},
+	{
+		"ain": "Ku=omkekar.",
+		"ja": "私は風邪を引きました。",
+		"en": "I have a cold.",
+		"ru": "Я заболел."
+	},
+	{
+		"ain": "Ku=honihi arka.",
+		"ja": "私はお腹が痛いです。",
+		"en": "I have a stomachache.",
+		"ru": "У меня болит живот."
+	},
+	{
+		"ain": "Ku=sitturaynu",
+		"ja": "私は迷いました。",
+		"en": "I'm lost.",
+		"ru": "Я потерялся."
+	},
+	{
+		"ain": "Icen ku=isamka.",
+		"ja": "私はお金を無くしました。",
+		"en": "I lost my money.",
+		"ru": "Я потерял деньги."
+	},
+	{
+		"ain": "Atuy or ta sus=an ro!",
+		"ja": "海で泳ぎましょう！",
+		"en": "Let's swim in the sea!",
+		"ru": "Давайте поплаваем в море!"
+	},
+	{
+		"ain": "Aynuitak a=eyaypakasnu ro!",
+		"ja": "アイヌ語を勉強しましょう！",
+		"en": "Let's study Ainu!",
+		"ru": "Давайте изучать айну!"
+	},
+	{
+		"ain": "Pirka wa!",
+		"ja": "いいね",
+		"en": "Good!",
+		"ru": "Хорошо!"
+	},
+	{
+		"ain": "Ponno hoski",
+		"ja": "ちょっとまって！",
+		"en": "Wait a minute!",
+		"ru": "Подождите минутку!"
+	},
+	{
+		"ain": "En=epakasnu wa en=kore!",
+		"ja": "私に教えて下さい！",
+		"en": "Teach me please!",
+		"ru": "Пожалуйста, объясните мне!"
 	}
 ]
