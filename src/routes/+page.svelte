@@ -7,9 +7,12 @@
 	import MaterialSymbolsFitbitArrowDownwardRounded from '~icons/material-symbols/fitbit-arrow-downward-rounded';
 	import RiDiscordFill from '~icons/ri/discord-fill';
 	import IconParkOutlineWritingFluently from '~icons/icon-park-outline/writing-fluently';
+	import MaterialSymbolsBook2Outline from '~icons/material-symbols/book-2-outline';
+	import LucideScroll from '~icons/lucide/scroll';
 	import aynuwikiScreenshot from '$assets/wiki.aynu.org.png';
 	import wikipediaScreenshot from '$assets/wikipedia.incubator.png';
 	import DictionaryTable from '$lib/DictionaryTable.svelte';
+	import type { Component } from 'svelte';
 </script>
 
 <svelte:head>
@@ -178,6 +181,7 @@
 		</div>
 		<div class="grid grid-cols-1 gap-4">
 			{#snippet card(
+				Icon: Component,
 				title: {
 					ain: string;
 					ja: string;
@@ -203,7 +207,10 @@
 				<div
 					class="grid grid-cols-1 items-center justify-center gap-2 border-2 bg-slate-100/50 border-slate-400 px-6 py-4 h-full rounded-lg shadow-lg"
 				>
-					<h3>{title.ain}</h3>
+					<h3 class="flex items-center justify-center gap-2">
+						<Icon class="w-8 h-8" />
+						{title.ain}
+					</h3>
 					<div role="doc-subtitle">
 						<span lang="ja">{title.ja}</span>
 						<span lang="en">{title.en}</span>
@@ -267,6 +274,7 @@
 
 			<!-- textbooks -->
 			{@render card(
+				MaterialSymbolsBook2Outline,
 				{
 					ain: 'Cioypakasnup',
 					ja: '教材',
@@ -319,6 +327,7 @@
 			)}
 
 			{@render card(
+				LucideScroll,
 				{
 					ain: 'Itakirenkasos',
 					ja: '文法書',
