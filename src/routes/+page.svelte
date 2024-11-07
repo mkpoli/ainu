@@ -9,6 +9,12 @@
 	import IconParkOutlineWritingFluently from '~icons/icon-park-outline/writing-fluently';
 	import MaterialSymbolsBook2Outline from '~icons/material-symbols/book-2-outline';
 	import LucideScroll from '~icons/lucide/scroll';
+	import RiToolsFill from '~icons/ri/tools-fill';
+	import MingcuteAiming2Line from '~icons/mingcute/aiming-2-line';
+	import Projects from '~icons/eos-icons/project-outlined';
+	import MaterialSymbolsDictionaryOutline from '~icons/material-symbols/dictionary-outline';
+	import AkarIconsBookOpen from '~icons/akar-icons/book-open';
+	import PhBooks from '~icons/ph/books';
 	import aynuwikiScreenshot from '$assets/wiki.aynu.org.png';
 	import wikipediaScreenshot from '$assets/wikipedia.incubator.png';
 	import DictionaryTable from '$lib/DictionaryTable.svelte';
@@ -60,7 +66,10 @@
 		>
 	</section>
 	<section id="aim">
-		<h2>{$t('Cikosirepap')}</h2>
+		<h2>
+			<MingcuteAiming2Line class="w-12 h-12" />
+			{$t('Cikosirepap')}
+		</h2>
 		<div role="doc-subtitle" lang="ja">
 			<span lang="ja">目的</span>
 			<span lang="en">Aim</span>
@@ -82,7 +91,10 @@
 		</main>
 	</section>
 	<section id="projects">
-		<h2>{$t('Cikarkoranpe')}</h2>
+		<h2>
+			<Projects class="w-12 h-12" />
+			{$t('Cikarkoranpe')}
+		</h2>
 		<div role="doc-subtitle" lang="ja">
 			<span lang="ja">プロジェクト</span>
 			<span lang="en">Projects</span>
@@ -133,7 +145,10 @@
 		</main>
 	</section>
 	<section id="tools">
-		<h2>{$t('Aeywankep')}</h2>
+		<h2>
+			<RiToolsFill class="w-12 h-12" />
+			{$t('Aeywankep')}
+		</h2>
 		<div role="doc-subtitle" lang="ja">
 			<span lang="ja">ツール</span>
 			<span lang="en">Tools</span>
@@ -154,7 +169,10 @@
 		</main>
 	</section>
 	<section id="dicts">
-		<h2>{$t('Aynuitak-Eonnekunnep')}</h2>
+		<h2>
+			<MaterialSymbolsDictionaryOutline class="w-12 h-12" />
+			{$t('Aynuitak-Eonnekunnep')}
+		</h2>
 		<div role="doc-subtitle" lang="ja">
 			<span lang="ja">アイヌ語辞書</span>
 			<span lang="en">Ainu Dictionaries</span>
@@ -185,7 +203,10 @@
 	</section>
 
 	<section id="books">
-		<h2>{$t('Kampisos')}</h2>
+		<h2 class="">
+			<PhBooks class="w-12 h-12" />
+			{$t('Kampisos')}
+		</h2>
 		<div role="doc-subtitle" lang="ja">
 			<span lang="ja">書籍</span>
 			<span lang="en">Books</span>
@@ -388,7 +409,10 @@
 	</section>
 
 	<section id="resource">
-		<h2>{$t('Itaksay')}</h2>
+		<h2>
+			<AkarIconsBookOpen class="w-12 h-12" />
+			{$t('Itaksay')}
+		</h2>
 		<div role="doc-subtitle" lang="ja">
 			<span lang="ja">資料</span>
 			<span lang="en">Resources</span>
@@ -461,6 +485,10 @@
 
 	section main {
 		@apply px-4 py-6;
+	}
+
+	section h2 {
+		@apply flex items-center justify-center gap-2 flex-col;
 	}
 
 	h1 + div[role='doc-subtitle'] {
