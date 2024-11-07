@@ -464,7 +464,7 @@
 						{
 							type: 'book',
 							title: 'Ainu Language Grammar Guide',
-							link: 'https://sites.google.com/view/aynu-itak/home',
+							link: 'https://www.aynuitak.org/',
 							author: 'Silja Ijas',
 							year: '2023'
 						}
