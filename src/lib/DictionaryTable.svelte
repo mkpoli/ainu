@@ -97,7 +97,29 @@
 	];
 </script>
 
-<table>
+<ul class="flex flex-col gap-4 md:hidden">
+	{#each dictionaries as { url, name, languages, dialect, count }}
+		<li class="hover:bg-gray-100/50 flex flex-col px-4 py-2">
+			<a href={url} lang="ja" target="_blank" class="text-lg font-bold"
+				>{@html name.replaceAll(/\n/g, '<br />')}</a
+			>
+			<span class="flex flex-row gap-x-4 flex-wrap">
+				{#each languages as { language, label }, i}
+					<span lang={language}>{i === 0 ? label.split('-').map($t).join('-') : label}</span>
+				{/each}
+			</span>
+			<span>
+				<span class="font-bold">{$t('Iposse')}</span>
+				{dialect === '-' ? '-' : $t(dialect)}
+			</span>
+			<span>
+				<span class="font-bold">{$t('Cipiskip')}</span>: {count}
+			</span>
+		</li>
+	{/each}
+</ul>
+
+<table class="hidden md:block">
 	<thead>
 		<tr>
 			<th>{$t('Ieonnekunnep')}</th>

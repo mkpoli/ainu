@@ -59,7 +59,7 @@
 			</div>
 		</div>
 
-		<nav class="flex flex-row items-center justify-center gap-4 py-4">
+		<nav class="flex-row hidden md:flex items-center justify-center gap-4 py-4">
 			<a class="text-white" href="#aim">{$t('Cikosirepap')}</a>
 			<a class="text-white" href="#projects">{$t('Cikarkoranpe')}</a>
 			<a class="text-white" href="#tools">{$t('Aeywankep')}</a>
@@ -550,7 +550,7 @@
 	}
 
 	section main {
-		@apply px-4 py-6;
+		@apply py-6;
 	}
 
 	section h2 {
