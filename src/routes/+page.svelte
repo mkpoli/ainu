@@ -168,19 +168,23 @@
 				Icon: Component,
 				external: boolean
 			)}
-				<div class="card">
+				<a
+					class="card hover:no-underline text-inherit"
+					href={link}
+					target={external ? '_blank' : '_self'}
+				>
 					<h3 class="flex flex-col items-center justify-center gap-2">
 						<Icon class="w-8 h-8" />
-						<a href={link} target={external ? '_blank' : '_self'}
-							>{$t(title.ain)}{#if external}<IcTwotoneLaunch class="w-4 h-4 inline ml-1" />{/if}</a
-						>
+						<span class="flex items-center justify-center gap-1 hover:underline">
+							{$t(title.ain)}{#if external}<IcTwotoneLaunch class="w-4 h-4 inline ml-1" />{/if}
+						</span>
 					</h3>
 					<div class="card-description" role="doc-subtitle">
 						<span lang="ja">{$t(title.ja)}</span>
 						<span lang="en">{$t(title.en)}</span>
 						<span lang="ru">{$t(title.ru)}</span>
 					</div>
-				</div>
+				</a>
 			{/snippet}
 			{@render toolCard(
 				{
