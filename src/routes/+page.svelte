@@ -91,7 +91,7 @@
 			<TodaysAinuPhrase />
 		</main>
 	</section>
-	<section id="aim">
+	<section id="aim" class="bg-gradient-to-b from-slate-200/50 to-slate-400/50">
 		<h2>
 			<MingcuteAiming2Line class="w-12 h-12" />
 			{$t('Cikosirepap')}
