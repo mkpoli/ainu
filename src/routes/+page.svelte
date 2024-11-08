@@ -638,6 +638,8 @@
 		flex-direction: column;
 
 		position: relative;
+
+		@apply py-12;
 	}
 
 	section#title {
