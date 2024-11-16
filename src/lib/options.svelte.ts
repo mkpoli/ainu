@@ -17,18 +17,22 @@ class OptionsManager {
 		}
 	}
 
-	get punctuation(): boolean {
-		return this.#punctuation;
-	}
-
-	set punctuation(value: boolean) {
-		this.#punctuation = value;
+	#saveToLocalStorage() {
 		if (browser) {
 			localStorage.setItem(
 				'options',
 				JSON.stringify({ punctuation: this.#punctuation, tu_as: this.#tu_as })
 			);
 		}
+	}
+
+	get punctuation(): boolean {
+		return this.#punctuation;
+	}
+
+	set punctuation(value: boolean) {
+		this.#punctuation = value;
+		this.#saveToLocalStorage();
 	}
 
 	get tu_as(): Tu {
@@ -37,12 +41,7 @@ class OptionsManager {
 
 	set tu_as(value: Tu) {
 		this.#tu_as = value;
-		if (browser) {
-			localStorage.setItem(
-				'options',
-				JSON.stringify({ punctuation: this.#punctuation, tu_as: this.#tu_as })
-			);
-		}
+		this.#saveToLocalStorage();
 	}
 }
 
