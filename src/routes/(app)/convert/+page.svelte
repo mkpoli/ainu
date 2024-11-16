@@ -69,6 +69,7 @@
 			converted = options.punctuation ? convertPunctuations(converted) : converted;
 			if (mode.endsWith('Kana') && converted.includes('ト゚')) {
 				converted = converted.replaceAll('ト゚', options.tu_as);
+				converted = converted.replaceAll('ㇺプ', options.mp_as);
 			}
 			if (mode === 'Latn2Kana' && converted.includes(' p ')) {
 				converted = converted.replaceAll(' p ', ' ㇷ゚ ');
@@ -110,10 +111,10 @@
 	</output>
 
 	<fieldset
-		class="flex flex-col items-center gap-2 border border-black px-6 py-4 rounded-lg focus-within:border-blue-700 focus-within:text-blue-700 transition-all"
+		class="flex flex-col items-center gap-2 rounded-lg border border-black px-6 py-4 transition-all focus-within:border-blue-700 focus-within:text-blue-700"
 	>
-		<legend class="text-lg font-bold px-1">{$t('Inumke')}</legend>
-		<div class="text-black flex flex-col gap-4">
+		<legend class="px-1 text-lg font-bold">{$t('Inumke')}</legend>
+		<div class="flex flex-col gap-4 text-black">
 			<div class="flex items-center gap-2">
 				<input type="checkbox" bind:checked={options.punctuation} id="punctuation" />
 				<label for="punctuation">{$t('Aytaksay’usarayep a=tupte')}</label>
@@ -128,6 +129,14 @@
 					<label for="tu_d" style="padding: 0 0.25em;">ト゚</label>
 					<input type="radio" bind:group={options.tu_as} id="tsu_d" value="ツ゚" />
 					<label for="tsu_d" style="padding: 0 0.25em;">ツ゚</label>
+				</div>
+
+				<div style="display: flex; align-items: center;">
+					<div>mp/мп →</div>
+					<input type="radio" bind:group={options.mp_as} id="mp_as" value="ンプ" />
+					<label for="mp_as" style="padding: 0 0.25em;">ンプ</label>
+					<input type="radio" bind:group={options.mp_as} id="mp_d" value="ㇺプ" />
+					<label for="mp_d" style="padding: 0 0.25em;">ㇺプ</label>
 				</div>
 			{/if}
 		</div>
