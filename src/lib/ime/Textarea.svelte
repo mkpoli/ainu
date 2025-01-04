@@ -4,9 +4,8 @@
 	import { tick } from 'svelte';
 	import { caret } from '$lib/caret';
 	import SuggestionBox from './SuggestionBox.svelte';
+	import { dictionary } from '$lib/data/dictionary';
 
-	import WORD_FREQ_LIST from '$data/word_freq.tsv';
-	import EXTRA_WORD_LIST from '$data/already_exists.txt?raw';
 	interface Props {
 		value?: string;
 		lang?: string;
@@ -14,32 +13,6 @@
 	}
 
 	let { value = $bindable(''), lang = 'ain', ...rest }: Props = $props();
-	const PERSONAL_AFFIXES = [
-		'ku=',
-		'k=',
-		'a=',
-		'ci=',
-		'eci=',
-		'e=',
-		'i=',
-		'en=',
-		'un=',
-		'=an',
-		'=as'
-	];
-
-	const dictionary = [
-		...WORD_FREQ_LIST,
-		...PERSONAL_AFFIXES.map((word) => ({ word, freq: 9999 })),
-		...EXTRA_WORD_LIST.split('\n')
-			.filter(
-				(word) =>
-					word &&
-					!PERSONAL_AFFIXES.includes(word) &&
-					!WORD_FREQ_LIST.find(({ word: w }) => w === word)
-			)
-			.map((word) => ({ word, freq: 0 }))
-	];
 
 	let suggestionBox: HTMLDivElement | undefined = $state();
 
