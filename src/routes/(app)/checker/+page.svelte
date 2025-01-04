@@ -33,6 +33,60 @@
 
 		return errors;
 	});
+
+	type Segment = {
+		text: string;
+		hasError: boolean;
+	};
+
+	let segments: Segment[] = $derived.by(() => {
+		const lines = input.split('\n');
+		const segments: Segment[] = [];
+
+		for (let i = 0; i < lines.length; i++) {
+			const lineText = lines[i];
+			// Find errors for this line and sort by char position
+			const lineErrors = errors.filter((e) => e.line === i).sort((a, b) => a.char - b.char);
+
+			let currentIndex = 0;
+			for (const err of lineErrors) {
+				const startIndex = err.char;
+				const endIndex = startIndex + err.sentence.length;
+				// Non-error segment (before the error)
+				if (startIndex > currentIndex) {
+					segments.push({
+						text: lineText.slice(currentIndex, startIndex),
+						hasError: false
+					});
+				}
+				// Error segment
+				segments.push({
+					text: lineText.slice(startIndex, endIndex),
+					hasError: true
+				});
+				currentIndex = endIndex;
+			}
+			// Remaining segment (after the last error in the line)
+			if (currentIndex < lineText.length) {
+				segments.push({
+					text: lineText.slice(currentIndex),
+					hasError: false
+				});
+			}
+			// If you want to preserve newlines explicitly
+			if (i < lines.length - 1) {
+				segments.push({
+					text: '\n',
+					hasError: false
+				});
+			}
+		}
+
+		return segments;
+	});
+
+	$inspect('errors', errors);
+	$inspect('segments', segments);
 </script>
 
 <svelte:head>
@@ -56,11 +110,24 @@
 		</label>
 	</fieldset>
 
-	<textarea
-		placeholder="文法チェックしたい文を入力してください"
-		bind:value={input}
-		class="m-auto min-h-48 w-full max-w-prose"
-	></textarea>
+	<div class="relative h-full min-h-48">
+		<!-- Overlay -->
+		<div class="pointer-events-none absolute inset-0 whitespace-pre-line break-all border p-4">
+			{#each segments as segment}
+				{#if segment.hasError}
+					<span class="underline decoration-red-500 underline-offset-2">{segment.text}</span>
+				{:else}
+					{segment.text}
+				{/if}
+			{/each}
+		</div>
+		<!-- Textarea -->
+		<textarea
+			placeholder="文法チェックしたい文を入力してください"
+			bind:value={input}
+			class="m-auto h-72 w-[75vw] max-w-prose resize-none border-none p-4 text-transparent"
+		></textarea>
+	</div>
 
 	<output>
 		<h2 class="text-lg font-bold">文法チェック結果</h2>
