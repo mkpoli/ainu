@@ -7,8 +7,8 @@
 	<a href="https://github.com/mkpoli/ainu">
 		<MdiGithub />
 	</a>
-	<a href="https://mkpo.li/" class="font-bold italic hover:underline">mkpoli</a>{$t(
-		'2023 pa wano kar'
+	<a href="https://aynu.org/" class="font-bold italic hover:underline">Aynu.org</a>{$t(
+		'© 2023 pa wano kar'
 	)}
 </footer>
 
