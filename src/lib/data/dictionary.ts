@@ -1,6 +1,8 @@
 import WORD_FREQ_LIST from '$data/word_freq.tsv';
 import EXTRA_WORD_LIST from '$data/already_exists.txt?raw';
 
+export type Dictionary = { word: string; freq: number }[];
+
 export const PERSONAL_AFFIXES = [
 	'ku=',
 	'k=',

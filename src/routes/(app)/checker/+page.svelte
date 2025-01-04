@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { dictionary } from '$lib/data/dictionary';
+	const dictionarySet: Set<string> = new Set(dictionary.map((entry) => entry.word.toLowerCase()));
+
 	let checkHead = $state(true);
 
 	let input = $state('');
@@ -6,8 +9,9 @@
 	type GrammarError = {
 		line: number;
 		char: number;
-		sentence: string;
+		word: string;
 		error: string;
+		errorType: 'warning' | 'error';
 	};
 
 	let errors: GrammarError[] = $derived.by(() => {
@@ -28,14 +32,40 @@
 					const sentence = part.trim();
 
 					if (sentence.length > 0) {
-						if (checkHead && sentence[0].toLowerCase() === sentence[0]) {
+						const words = sentence.split(/\b/); // Splits by word boundaries
+						const firstWord = words.find((w) => /\w+/.test(w));
+						// 文頭頭文字が小文字であるかチェック
+
+						// 文頭頭文字が小文字であるかチェック (Check if the first character of the first word is lowercase)
+						if (checkHead && firstWord && firstWord[0].toLowerCase() === firstWord[0]) {
 							errors.push({
 								line: lineIndex,
 								char: currentChar,
-								sentence: sentence,
-								error: '文の頭文字が小文字です'
+								word: firstWord, // Associate error with the first word
+								error: '文の頭文字が小文字です',
+								errorType: 'error'
 							});
 						}
+
+						let wordStartInSentence = 0; // Position within the sentence
+
+						// スペルチェッカー
+						words.forEach((word) => {
+							const isWord = /\w+/.test(word);
+							if (isWord) {
+								const normalizedWord = word.toLowerCase();
+								if (!dictionarySet.has(normalizedWord)) {
+									errors.push({
+										line: lineIndex,
+										char: currentChar + wordStartInSentence,
+										word: word,
+										error: '未知語',
+										errorType: 'warning'
+									});
+								}
+							}
+							wordStartInSentence += word.length;
+						});
 
 						currentChar += part.length;
 					}
@@ -50,28 +80,18 @@
 
 	type Segment = {
 		text: string;
-		errorIndex?: number; // Index into errors array if error exists
+		errorIndices: number[];
 	};
 
 	let segments: Segment[] = $derived.by(() => {
-		const findErrorAt = (
-			wordStart: number,
-			wordEnd: number,
-			errors: GrammarError[]
-		): number | undefined => {
-			const index = errors.findIndex((error) => {
-				return error.char >= wordStart && error.char < wordEnd;
-			});
-			return index === -1 ? undefined : index;
-		};
-
 		const segments: Segment[] = [];
-
 		const lines = input.split('\n');
 
 		for (let i = 0; i < lines.length; i++) {
 			const lineText = lines[i];
-			const lineErrors = errors.filter((e) => e.line === i);
+			const lineErrors = errors
+				.map((error, index) => ({ ...error, index }))
+				.filter((e) => e.line === i);
 
 			let currentIndex = 0;
 
@@ -83,17 +103,23 @@
 				const tokenStart = match.index;
 				const tokenEnd = tokenStart + token.length;
 
-				console.log({ token, tokenStart, tokenEnd, lineErrors });
+				// Find all errors that overlap with this token
+				const overlappingErrors = lineErrors
+					.filter((error) => {
+						return error.char <= tokenStart && error.char + error.word.length >= tokenEnd;
+					})
+					.map((error) => error.index);
+				console.log({ overlappingErrors });
 
 				if (/\w+/.test(token)) {
-					const errorIndex = findErrorAt(tokenStart, tokenEnd, lineErrors);
 					segments.push({
 						text: token,
-						errorIndex: errorIndex
+						errorIndices: overlappingErrors.length > 0 ? overlappingErrors : []
 					});
 				} else {
 					segments.push({
-						text: token
+						text: token,
+						errorIndices: []
 					});
 				}
 
@@ -102,7 +128,8 @@
 
 			if (i < lines.length - 1) {
 				segments.push({
-					text: '\n'
+					text: '\n',
+					errorIndices: []
 				});
 			}
 		}
@@ -138,10 +165,20 @@
 		<!-- Overlay -->
 		<div class="pointer-events-none absolute inset-0 whitespace-pre-line break-all border p-4">
 			{#each segments as segment}
-				{#if segment.errorIndex !== undefined}
+				{#if segment.errorIndices.length > 0}
 					<span
-						class="underline decoration-red-500 underline-offset-2"
-						title={errors?.[segment.errorIndex]?.error}>{segment.text}</span
+						class={[
+							'underline',
+							'underline-offset-2',
+							// All errors -> red
+							// TODO: Error and warning -> orange
+							// Warning -> yellow
+							segment.errorIndices.some((index) => errors[index].errorType === 'error')
+								? 'decoration-red-500'
+								: 'decoration-yellow-500'
+						]}
+						title={segment.errorIndices.map((index) => errors[index].error).join('\n')}
+						>{segment.text}</span
 					>
 				{:else}
 					{segment.text}
@@ -161,7 +198,7 @@
 		<ul>
 			{#each errors as error}
 				<li>
-					{error.line}行目 {error.char}文字目: {error.sentence}
+					{error.line}行目 {error.char}文字目: {error.word}
 					{error.error}
 				</li>
 			{/each}
