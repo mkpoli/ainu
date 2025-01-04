@@ -36,14 +36,19 @@
 
 	type Segment = {
 		text: string;
-		hasError: boolean;
+		errorIndex?: number; // Index into errors array if error exists
 	};
 
 	let segments: Segment[] = $derived.by(() => {
-		const isErrorAt = (wordStart: number, wordEnd: number, errors: GrammarError[]): boolean => {
-			return errors.some((error) => {
+		const findErrorAt = (
+			wordStart: number,
+			wordEnd: number,
+			errors: GrammarError[]
+		): number | undefined => {
+			const index = errors.findIndex((error) => {
 				return error.char >= wordStart && error.char < wordEnd;
 			});
+			return index === -1 ? undefined : index;
 		};
 
 		const segments: Segment[] = [];
@@ -64,16 +69,17 @@
 				const tokenStart = match.index;
 				const tokenEnd = tokenStart + token.length;
 
+				console.log({ token, tokenStart, tokenEnd, lineErrors });
+
 				if (/\w+/.test(token)) {
-					const hasError = isErrorAt(tokenStart, tokenEnd, lineErrors);
+					const errorIndex = findErrorAt(tokenStart, tokenEnd, lineErrors);
 					segments.push({
 						text: token,
-						hasError: hasError
+						errorIndex: errorIndex
 					});
 				} else {
 					segments.push({
-						text: token,
-						hasError: false
+						text: token
 					});
 				}
 
@@ -82,8 +88,7 @@
 
 			if (i < lines.length - 1) {
 				segments.push({
-					text: '\n',
-					hasError: false
+					text: '\n'
 				});
 			}
 		}
@@ -119,8 +124,11 @@
 		<!-- Overlay -->
 		<div class="pointer-events-none absolute inset-0 whitespace-pre-line break-all border p-4">
 			{#each segments as segment}
-				{#if segment.hasError}
-					<span class="underline decoration-red-500 underline-offset-2">{segment.text}</span>
+				{#if segment.errorIndex !== undefined}
+					<span
+						class="underline decoration-red-500 underline-offset-2"
+						title={errors?.[segment.errorIndex]?.error}>{segment.text}</span
+					>
 				{:else}
 					{segment.text}
 				{/if}
