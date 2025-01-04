@@ -40,40 +40,46 @@
 	};
 
 	let segments: Segment[] = $derived.by(() => {
-		const lines = input.split('\n');
+		const isErrorAt = (wordStart: number, wordEnd: number, errors: GrammarError[]): boolean => {
+			return errors.some((error) => {
+				return error.char >= wordStart && error.char < wordEnd;
+			});
+		};
+
 		const segments: Segment[] = [];
+
+		const lines = input.split('\n');
 
 		for (let i = 0; i < lines.length; i++) {
 			const lineText = lines[i];
-			// Find errors for this line and sort by char position
-			const lineErrors = errors.filter((e) => e.line === i).sort((a, b) => a.char - b.char);
+			const lineErrors = errors.filter((e) => e.line === i);
 
 			let currentIndex = 0;
-			for (const err of lineErrors) {
-				const startIndex = err.char;
-				const endIndex = startIndex + err.sentence.length;
-				// Non-error segment (before the error)
-				if (startIndex > currentIndex) {
+
+			const regex = /(\w+|\W+)/g;
+			let match: RegExpExecArray | null;
+
+			while ((match = regex.exec(lineText)) !== null) {
+				const token = match[0];
+				const tokenStart = match.index;
+				const tokenEnd = tokenStart + token.length;
+
+				if (/\w+/.test(token)) {
+					const hasError = isErrorAt(tokenStart, tokenEnd, lineErrors);
 					segments.push({
-						text: lineText.slice(currentIndex, startIndex),
+						text: token,
+						hasError: hasError
+					});
+				} else {
+					segments.push({
+						text: token,
 						hasError: false
 					});
 				}
-				// Error segment
-				segments.push({
-					text: lineText.slice(startIndex, endIndex),
-					hasError: true
-				});
-				currentIndex = endIndex;
+
+				currentIndex = tokenEnd;
 			}
-			// Remaining segment (after the last error in the line)
-			if (currentIndex < lineText.length) {
-				segments.push({
-					text: lineText.slice(currentIndex),
-					hasError: false
-				});
-			}
-			// If you want to preserve newlines explicitly
+
 			if (i < lines.length - 1) {
 				segments.push({
 					text: '\n',
@@ -81,7 +87,6 @@
 				});
 			}
 		}
-
 		return segments;
 	});
 
