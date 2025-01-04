@@ -180,7 +180,7 @@
 			<span lang="en">Tools</span>
 			<span lang="ru">Инструменты</span>
 		</div>
-		<main class="cards">
+		<main class="cards flex flex-wrap">
 			{#snippet toolCard(
 				title: {
 					ain: string;
@@ -220,6 +220,17 @@
 				'/convert',
 				IconParkOutlineWritingFluently,
 				false
+			)}
+			{@render toolCard(
+				{
+					ain: 'Itak Irenka Katu A=Nukar',
+					ja: 'アイヌ語文法チェッカー',
+					en: 'Ainu Grammar Checker',
+					ru: 'Айнский грамматический проверяющий'
+				},
+				'/checker',
+				MaterialSymbolsTranslateRounded,
+				true
 			)}
 			{@render toolCard(
 				{
