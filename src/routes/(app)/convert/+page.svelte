@@ -44,7 +44,7 @@
 	}
 
 	let mode: Mode = $state('Latn2Kana');
-	run(() => {
+	$effect(() => {
 		try {
 			switch (mode) {
 				case 'Latn2Kana':
