@@ -59,7 +59,7 @@
 			</div>
 		</div>
 
-		<nav class="flex-row hidden md:flex items-center justify-center gap-4 py-4">
+		<nav class="hidden flex-row items-center justify-center gap-4 py-4 md:flex">
 			<a class="text-white" href="#aim">{$t('Cikosirepap')}</a>
 			<a class="text-white" href="#projects">{$t('Cikarkoranpe')}</a>
 			<a class="text-white" href="#tools">{$t('Aeywankep')}</a>
@@ -79,7 +79,7 @@
 	</section>
 	<section id="today">
 		<h2 class="flex flex-row items-center justify-center gap-2">
-			<CarbonPhraseSentiment class="w-12 h-12" />
+			<CarbonPhraseSentiment class="h-12 w-12" />
 			{$t('Tanto Itak')}
 		</h2>
 		<div role="doc-subtitle" lang="ja">
@@ -93,7 +93,7 @@
 	</section>
 	<section id="aim" class="bg-gradient-to-b from-slate-200/50 to-slate-400/50">
 		<h2>
-			<MingcuteAiming2Line class="w-12 h-12" />
+			<MingcuteAiming2Line class="h-12 w-12" />
 			{$t('Cikosirepap')}
 		</h2>
 		<div role="doc-subtitle" lang="ja">
@@ -118,7 +118,7 @@
 	</section>
 	<section id="projects">
 		<h2>
-			<Projects class="w-12 h-12" />
+			<Projects class="h-12 w-12" />
 			{$t('Cikarkoranpe')}
 		</h2>
 		<div role="doc-subtitle" lang="ja">
@@ -138,8 +138,8 @@
 				link: string,
 				image: string
 			)}
-				<a href={link} target="_blank" class="card hover:no-underline text-inherit">
-					<h3 class="hover:underline text-black underline-black">{$t(title.ain)}</h3>
+				<a href={link} target="_blank" class="card text-inherit hover:no-underline">
+					<h3 class="underline-black text-black hover:underline">{$t(title.ain)}</h3>
 					<img class="card-image" src={image} alt={title.ain} />
 					<div class="card-description" role="doc-subtitle">
 						<span lang="ja">{$t(title.ja)}</span>
@@ -172,7 +172,7 @@
 	</section>
 	<section id="tools">
 		<h2>
-			<RiToolsFill class="w-12 h-12" />
+			<RiToolsFill class="h-12 w-12" />
 			{$t('Aeywankep')}
 		</h2>
 		<div role="doc-subtitle" lang="ja">
@@ -193,14 +193,14 @@
 				external: boolean
 			)}
 				<a
-					class="card hover:no-underline text-inherit"
+					class="card text-inherit hover:no-underline"
 					href={link}
 					target={external ? '_blank' : '_self'}
 				>
 					<h3 class="flex flex-col items-center justify-center gap-2">
-						<Icon class="w-8 h-8" />
+						<Icon class="h-8 w-8" />
 						<span class="flex items-center justify-center gap-1 hover:underline">
-							{$t(title.ain)}{#if external}<IcTwotoneLaunch class="w-4 h-4 inline ml-1" />{/if}
+							{$t(title.ain)}{#if external}<IcTwotoneLaunch class="ml-1 inline h-4 w-4" />{/if}
 						</span>
 					</h3>
 					<div class="card-description" role="doc-subtitle">
@@ -247,7 +247,7 @@
 	</section>
 	<section id="dicts">
 		<h2>
-			<MaterialSymbolsDictionaryOutline class="w-12 h-12" />
+			<MaterialSymbolsDictionaryOutline class="h-12 w-12" />
 			{$t('Aynuitak-Eonnekunnep')}
 		</h2>
 		<div role="doc-subtitle" lang="ja">
@@ -261,7 +261,7 @@
 			<h3>
 				{$t('Oya Rinko')}
 			</h3>
-			<ul class="list-disc w-content mx-auto">
+			<ul class="w-content mx-auto list-disc">
 				<li class="w-content">
 					<a
 						href="https://ja.wiktionary.org/wiki/%E5%88%A9%E7%94%A8%E8%80%85:Mkpoli/%E3%82%A2%E3%82%A4%E3%83%8C%E8%AA%9E%E8%AA%9E%E5%BD%99%E9%A0%BB%E5%BA%A6%E8%A1%A8"
@@ -281,7 +281,7 @@
 
 	<section id="books">
 		<h2 class="">
-			<PhBooks class="w-12 h-12" />
+			<PhBooks class="h-12 w-12" />
 			{$t('Kampisos')}
 		</h2>
 		<div role="doc-subtitle" lang="ja">
@@ -315,10 +315,10 @@
 				>
 			)}
 				<div
-					class="grid grid-cols-1 items-center justify-center gap-2 border-2 bg-slate-100/50 border-slate-400 px-6 py-4 h-full rounded-lg shadow-lg"
+					class="grid h-full grid-cols-1 items-center justify-center gap-2 rounded-lg border-2 border-slate-400 bg-slate-100/50 px-6 py-4 shadow-lg"
 				>
 					<h3 class="flex items-center justify-center gap-2">
-						<Icon class="w-8 h-8" />
+						<Icon class="h-8 w-8" />
 						{title.ain}
 					</h3>
 					<div class="flex flex-row items-center justify-center gap-4">
@@ -487,7 +487,7 @@
 
 	<section id="resource">
 		<h2>
-			<AkarIconsBookOpen class="w-12 h-12" />
+			<AkarIconsBookOpen class="h-12 w-12" />
 			{$t('Itaksay')}
 		</h2>
 		<div role="doc-subtitle" lang="ja">
@@ -565,7 +565,7 @@
 	}
 
 	section h2 {
-		@apply flex items-center justify-center gap-2 flex-col;
+		@apply flex flex-col items-center justify-center gap-2;
 	}
 
 	h1 + div[role='doc-subtitle'] {
