@@ -109,7 +109,6 @@
 						return error.char <= tokenStart && error.char + error.word.length >= tokenEnd;
 					})
 					.map((error) => error.index);
-				console.log({ overlappingErrors });
 
 				if (/\w+/.test(token)) {
 					segments.push({
