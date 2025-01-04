@@ -67,6 +67,35 @@
 							wordStartInSentence += word.length;
 						});
 
+						for (const [index, word] of words.entries()) {
+							if (index + 1 >= words.length || index - 1 < 0) continue;
+							if (word !== '=') continue;
+							const wordBefore = words[index - 1];
+							const wordAfter = words[index + 1];
+							const nextChar = wordAfter[0];
+
+							if (['k', 'c'].includes(wordBefore) && !['a', 'u', 'e', 'o'].includes(nextChar)) {
+								//  Sar dialect
+								errors.push({
+									line: lineIndex,
+									char: currentChar + word.length - wordBefore.length,
+									word: wordBefore + word,
+									error: 'a, u, e, o の前以外 ci=, ku= の母音の脱落が起きない',
+									errorType: 'error'
+								});
+							}
+
+							if (['ku', 'ci'].includes(wordBefore) && ['a', 'u', 'e', 'o'].includes(nextChar)) {
+								errors.push({
+									line: lineIndex,
+									char: currentChar + word.length - wordBefore.length,
+									word: wordBefore + word + wordAfter,
+									error: '沙流方言では ci=, ku= が a, u, e, o の前で c=, k= になる',
+									errorType: 'warning'
+								});
+							}
+						}
+
 						currentChar += part.length;
 					}
 				} else {
@@ -110,7 +139,7 @@
 					})
 					.map((error) => error.index);
 
-				if (/\w+/.test(token)) {
+				if (/[\w=]+/.test(token)) {
 					segments.push({
 						text: token,
 						errorIndices: overlappingErrors.length > 0 ? overlappingErrors : []
