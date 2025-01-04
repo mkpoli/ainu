@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { run } from 'svelte/legacy';
-
 	import { tick } from 'svelte';
 	import { caret } from '$lib/caret';
 	import SuggestionBox from './SuggestionBox.svelte';
@@ -16,8 +14,6 @@
 
 	let suggestionBox: HTMLDivElement | undefined = $state();
 
-	let suggestions: string[] = $state(['a', 'b', 'c']);
-
 	// function getLastChar()
 
 	function compileSuggestions(
@@ -26,6 +22,7 @@
 		dictionary: { word: string; freq: number }[]
 	): string[] {
 		// Get substring until caret position
+
 		const sub = input.slice(0, caretPos);
 
 		// Get the last word
@@ -43,9 +40,8 @@
 
 	let caretRect: DOMRect | undefined = $state(undefined);
 	let caretPos: number = $state(0);
-	run(() => {
-		suggestions = compileSuggestions(value, caretPos, dictionary);
-	});
+
+	let suggestions: string[] = $derived(compileSuggestions(value, caretPos, dictionary));
 </script>
 
 <div>
