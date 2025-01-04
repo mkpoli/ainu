@@ -33,7 +33,7 @@
 								line: lineIndex,
 								char: currentChar,
 								sentence: sentence,
-								error: '文頭頭文字が小文字です'
+								error: '文の頭文字が小文字です'
 							});
 						}
 
