@@ -16,17 +16,31 @@
 		const lines = input.split(/\r?\n/);
 		const errors: GrammarError[] = [];
 
-		for (const [lind, line] of lines.entries()) {
-			for (const sentence of line.split(/(.*?\.\s*)/)) {
-				if (!sentence) continue;
+		for (const [lineIndex, line] of lines.entries()) {
+			let currentChar = 0;
 
-				if (checkHead && sentence[0].toLowerCase() === sentence[0]) {
-					errors.push({
-						line: lind,
-						char: line.indexOf(sentence),
-						sentence,
-						error: '文頭頭文字が小文字です'
-					});
+			const sentenceParts = line.split(/(\.\s*)/);
+
+			for (let i = 0; i < sentenceParts.length; i++) {
+				const part = sentenceParts[i];
+
+				if (i % 2 === 0) {
+					const sentence = part.trim();
+
+					if (sentence.length > 0) {
+						if (checkHead && sentence[0].toLowerCase() === sentence[0]) {
+							errors.push({
+								line: lineIndex,
+								char: currentChar,
+								sentence: sentence,
+								error: '文頭頭文字が小文字です'
+							});
+						}
+
+						currentChar += part.length;
+					}
+				} else {
+					currentChar += part.length;
 				}
 			}
 		}
