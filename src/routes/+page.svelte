@@ -243,6 +243,17 @@
 				MaterialSymbolsTranslateRounded,
 				true
 			)}
+			{@render toolCard(
+				{
+					ain: 'Wiktionary a=enuypap',
+					ja: 'アイヌ語 Wiktionary 支援ツール',
+					en: 'Ainu Wiktionary Helper',
+					ru: 'Помощник Айнского Викисловаря'
+				},
+				'https://wikt.aynu.org/',
+				MaterialSymbolsDictionaryOutline,
+				true
+			)}
 		</main>
 	</section>
 	<section id="dicts">
