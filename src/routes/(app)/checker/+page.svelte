@@ -1,10 +1,15 @@
 <script lang="ts">
 	import { dictionary } from '$lib/data/dictionary';
+	import Fuse from 'fuse.js';
 	const dictionarySet: Set<string> = new Set(dictionary.map((entry) => entry.word.toLowerCase()));
 
 	let checkHead = $state(true);
 
 	let input = $state('');
+
+	const fuse = new Fuse([...dictionarySet], {
+		threshold: 0.5
+	});
 
 	type GrammarError = {
 		line: number;
@@ -12,6 +17,7 @@
 		word: string;
 		error: string;
 		errorType: 'warning' | 'error';
+		correction?: string;
 	};
 
 	let errors: GrammarError[] = $derived.by(() => {
@@ -43,7 +49,8 @@
 								char: currentChar,
 								word: firstWord, // Associate error with the first word
 								error: '文の頭文字が小文字です',
-								errorType: 'error'
+								errorType: 'error',
+								correction: firstWord[0].toUpperCase() + firstWord.slice(1)
 							});
 						}
 
@@ -60,7 +67,8 @@
 										char: currentChar + wordStartInSentence,
 										word: word,
 										error: '未知語',
-										errorType: 'warning'
+										errorType: 'warning',
+										correction: fuse.search(normalizedWord)?.[0]?.item
 									});
 								}
 							}
@@ -79,9 +87,16 @@
 								errors.push({
 									line: lineIndex,
 									char: currentChar + word.length - wordBefore.length,
-									word: wordBefore + word,
+									word: wordBefore + word + wordAfter,
 									error: 'a, u, e, o の前以外 ci=, ku= の母音の脱落が起きない',
-									errorType: 'error'
+									errorType: 'error',
+									correction:
+										{
+											k: 'k',
+											c: 'c'
+										}[wordBefore] +
+										word +
+										wordAfter
 								});
 							}
 
@@ -91,7 +106,14 @@
 									char: currentChar + word.length - wordBefore.length,
 									word: wordBefore + word + wordAfter,
 									error: '沙流方言では ci=, ku= が a, u, e, o の前で c=, k= になる',
-									errorType: 'warning'
+									errorType: 'warning',
+									correction:
+										{
+											ku: 'k',
+											ci: 'c'
+										}[wordBefore] +
+										word +
+										wordAfter
 								});
 							}
 						}
@@ -227,7 +249,9 @@
 			{#each errors as error}
 				<li>
 					{error.line}行目 {error.char}文字目: {error.word}
-					{error.error}
+					{error.error}{#if error.correction}
+						<span class="text-blue-600">{error.correction}?</span>
+					{/if}
 				</li>
 			{/each}
 		</ul>

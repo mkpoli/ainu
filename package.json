@@ -44,6 +44,7 @@
 		"@fontsource/sawarabi-mincho": "^5.1.1",
 		"@rollup/plugin-dsv": "^3.0.5",
 		"ainconv": "^0.5.1",
+		"fuse.js": "^7.0.0",
 		"unplugin-icons": "^0.22.0"
 	}
 }
