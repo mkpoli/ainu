@@ -91,7 +91,7 @@
 			<TodaysAinuPhrase />
 		</main>
 	</section>
-	<section id="aim" class="bg-gradient-to-b from-slate-200/50 to-slate-400/50">
+	<section id="aim" class="bg-linear-to-b from-slate-200/50 to-slate-400/50">
 		<h2>
 			<MingcuteAiming2Line class="h-12 w-12" />
 			{$t('Cikosirepap')}
@@ -105,7 +105,7 @@
 			<p class="text-xl">
 				{$t('Aynuitak einuypa eukasuy wa tanesasuysir osiknuka.')}
 			</p>
-			<div class="translation text-lg">
+			<div class="translation flex-col text-lg">
 				<span lang="ja">アイヌ語での文章作成を支援し、その現代化を促進する</span>
 				<span lang="en"
 					>To support the writing in Ainu and to promote the modernization of Ainu</span
@@ -539,6 +539,8 @@
 </main>
 
 <style lang="postcss">
+	@reference "tailwindcss";
+
 	@media screen and (max-width: 768px) {
 		.title-content :global(.ayus) {
 			display: none;
@@ -565,10 +567,6 @@
 		margin: 0;
 		font-weight: normal;
 		text-align: center;
-	}
-
-	.translation {
-		@apply flex-col;
 	}
 
 	section main {

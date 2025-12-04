@@ -1,3 +1,16 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/container-queries';
+@plugin '@tailwindcss/aspect-ratio';
+
+@theme {
+	--font-Poiret: 'Poiret One', system-ui;
+	--font-Messiri: 'El Messiri Variable', serif;
+	--font-Hina: 'Hina Mincho', serif;
+	--font-Sawarabi: 'Sawarabi Mincho', serif;
+}
+
 :root {
 	font-family: sans-serif;
 
@@ -70,4 +83,28 @@ button.primary {
 
 button.primary:hover {
 	filter: brightness(0.8) drop-shadow(0 0 0.5em rgba(0, 0, 0, 0.25));
+}
+
+a {
+	@apply text-blue-600 hover:underline;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	@apply font-Messiri;
+	dominant-baseline: ideographic;
+}
+
+*:where([lang='ja']) {
+	@apply font-Sawarabi;
+	/* font-size: 0.95em; */
+	/* line-height: -1.5; */
+	transform: translateY(-0.1em);
+}
+
+*:where([lang='en'], [lang='ain-Latn'], [lang='ru'], [lang='ain-Cyrl']) {
+	@apply font-Messiri;
 }

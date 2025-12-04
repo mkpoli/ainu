@@ -213,7 +213,7 @@
 
 	<div class="relative h-full min-h-48">
 		<!-- Overlay -->
-		<div class="pointer-events-none absolute inset-0 whitespace-pre-line break-all border p-4">
+		<div class="pointer-events-none absolute inset-0 border p-4 break-all whitespace-pre-line">
 			{#each segments as segment}
 				{#if segment.errorIndices.length > 0}
 					<span
