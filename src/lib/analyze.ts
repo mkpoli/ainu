@@ -52,6 +52,10 @@ export function groupTokens(tokens: Token[], uposTokens: UposToken[]): TokenGrou
 					break;
 				}
 			}
+			if (group.tokens.length === 0) {
+				uposIndex++;
+				break;
+			}
 			if (uEnd > group.tokens[group.tokens.length - 1].position[1]) {
 				break; // Move to next group of tokens
 			}
