@@ -1,21 +1,23 @@
-import { json, type RequestHandler } from '@sveltejs/kit';
-import { HUGGINGFACE_INFERENCE_API_TOKEN } from '$env/static/private';
+import { error, json, type RequestHandler } from '@sveltejs/kit';
+import { env } from '$env/dynamic/private';
 
-async function query(data: string) {
-	const response = await fetch(
-		'https://api-inference.huggingface.co/models/KoichiYasuoka/deberta-base-ainu-upos',
-		{
-			headers: { Authorization: `Bearer ${HUGGINGFACE_INFERENCE_API_TOKEN}` },
-			method: 'POST',
-			body: JSON.stringify({ inputs: data })
-		}
-	);
-	const result = await response.json();
-	return result;
-}
+// Hugging Face Inference API; the model is served through the router endpoint.
+const MODEL_URL =
+	'https://router.huggingface.co/hf-inference/models/KoichiYasuoka/deberta-base-ainu-upos';
 
 export const POST: RequestHandler = async ({ request }) => {
+	const token = env.HUGGINGFACE_INFERENCE_API_TOKEN;
+	if (!token) {
+		error(503, 'UPOS tagging is not configured');
+	}
 	const inputText = await request.text();
-	const result = await query(inputText);
-	return json(result);
+	const response = await fetch(MODEL_URL, {
+		method: 'POST',
+		headers: { Authorization: `Bearer ${token}`, 'content-type': 'application/json' },
+		body: JSON.stringify({ inputs: inputText })
+	});
+	if (!response.ok) {
+		error(502, `Inference API responded ${response.status}`);
+	}
+	return json(await response.json());
 };
