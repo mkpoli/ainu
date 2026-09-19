@@ -26,7 +26,7 @@
 </script>
 
 <svelte:head>
-	<title>{$t('Aynuitak-nuye Ukosamaani Sait')}</title>
+	<title>Aynuitak-nuye Ukosamaani Sait｜アイヌ語作文・翻訳支援サイト</title>
 </svelte:head>
 
 <main>
